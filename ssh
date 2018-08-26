@@ -1,0 +1,14 @@
+# to generate
+ssh-keygen -t ed25519 -C "<local user>@<local host>" -f <remote user>@<remote host>
+# or openssh-server < 6.5
+ssh-keygen -t rsa -b 4096 -C "<local user>@<local host>" -f <remote user>@<remote host>
+
+# to add to ssh-agent
+eval "$(ssh-agent -s)"
+ssh-add <remote user>@<remote host>
+
+# to push
+ssh-copy-id -i <remote user>@<remote host>.pub <remote host>
+
+# to list
+for key in ~/.ssh/*.pub; do ssh-keygen -l -f "${key}"; done | uniq

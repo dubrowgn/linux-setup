@@ -1,0 +1,15 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+/*
+ * 1) open `about:support`, and open profile folder
+ * 2) create folder `chrome`
+ * 3) place this file inside using the filename `userChrome.css`
+ */
+
+#TabsToolbar {
+	visibility: collapse !important;
+}
+
+#sidebar-header {
+	display: none;
+}
