@@ -11,3 +11,6 @@ call matchadd('ExtraWhitespace', '\s\+$')
 map <A-Left> :tprev<CR><CR>
 map <A-Right> :tnext<CR><CR>
 
+" make ctrl+left/right consistent with visual mode
+map <C-Left> b
+map <C-Right> w
