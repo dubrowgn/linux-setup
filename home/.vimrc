@@ -20,3 +20,7 @@ hi Whitespace ctermfg=DarkGray
 match Whitespace /\s\|\n/
 set list
 set listchars=tab:▸\ ,space:·,eol:¬
+
+" copy/paste via system clipboard
+map <C-c> "+y
+map <C-v> "+p
