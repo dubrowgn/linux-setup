@@ -14,3 +14,9 @@ map <A-Right> :tnext<CR><CR>
 " make ctrl+left/right consistent with visual mode
 map <C-Left> b
 map <C-Right> w
+
+" show whitespace
+hi Whitespace ctermfg=DarkGray
+match Whitespace /\s\|\n/
+set list
+set listchars=tab:▸\ ,space:·,eol:¬
