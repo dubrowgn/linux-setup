@@ -58,9 +58,13 @@ cargo install tcalc
 cd ~/Downloads
 
 # bat
-wget https://github.com/sharkdp/bat/releases/download/v0.7.1/bat_0.7.1_amd64.deb
+wget -q --show-progress https://github.com/sharkdp/bat/releases/download/v0.7.1/bat_0.7.1_amd64.deb
 sudo dpkg -i bat_0.7.1_amd64.deb
 
 # fd
-wget https://github.com/sharkdp/fd/releases/download/v7.1.0/fd_7.1.0_amd64.deb
+wget -q --show-progress https://github.com/sharkdp/fd/releases/download/v7.1.0/fd_7.1.0_amd64.deb
 sudo dpkg -i fd_7.1.0_amd64.deb
+
+# steam
+wget -q --show-progress https://steamcdn-a.akamaihd.net/client/installer/steam.deb
+sudo dpkg -i steam.deb
