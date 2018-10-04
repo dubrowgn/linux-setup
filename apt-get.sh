@@ -39,6 +39,9 @@ sudo apt-get install \
 	git \
 	htop \
 	nodejs \
+	powertop \
+	silversearcher-ag \
+	smartmontools \
 	speedcrunch \
 	sublime-text \
 	tree \
@@ -49,3 +52,15 @@ sudo apt-get clean
 # install rust
 curl https://sh.rustup.rs -sSf | \
 	sh -s -- -y
+source $HOME/.cargo/env
+cargo install tcalc
+
+cd ~/Downloads
+
+# bat
+wget https://github.com/sharkdp/bat/releases/download/v0.7.1/bat_0.7.1_amd64.deb
+sudo dpkg -i bat_0.7.1_amd64.deb
+
+# fd
+wget https://github.com/sharkdp/fd/releases/download/v7.1.0/fd_7.1.0_amd64.deb
+sudo dpkg -i fd_7.1.0_amd64.deb
