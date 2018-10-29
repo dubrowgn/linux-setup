@@ -38,6 +38,7 @@ sudo apt-get install \
 	firefox \
 	git \
 	htop \
+	keepassx \
 	nodejs \
 	powertop \
 	silversearcher-ag \
