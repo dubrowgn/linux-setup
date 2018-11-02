@@ -37,6 +37,7 @@ sudo apt-get install \
 	conky \
 	firefox \
 	git \
+	gparted \
 	htop \
 	keepassx \
 	nodejs \
