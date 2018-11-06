@@ -14,17 +14,16 @@ https://addons.mozilla.org/en-US/firefox/addon/tree-style-tab/
 # 0 - allow auto-play (default)
 # 1 - do not auto-play
 # 2 - prompt user for auto-play
-media.autoplay.default=1
+media.autoplay.default = 2
 
-# true - single click selects all (default)
-# false - single click behaves like standard textbox
-browser.urlbar.clickSelectsAll=false
+browser.urlbar.clickSelectsAll = false
+extensions.pocket.enabled = false
+findbar.highlightAll = true
+general.warnOnAboutConfig = false
 
-# true - enable pocket (default)
-# false - disable pocket
-extensions.pocket.enabled=false
-
-# true - find (ctrl+f) highlights all hits
-# false - find highlights current hit only (default)
-findbar.highlightAll=true
+browser.newtabpage.activity-stream.showSearch = false
+browser.newtabpage.activity-stream.feeds.section.highlights = false
+browser.newtabpage.activity-stream.feeds.section.topstories = false
+browser.newtabpage.activity-stream.feeds.snippets = false
+browser.newtabpage.activity-stream.feeds.topsites = false
 
