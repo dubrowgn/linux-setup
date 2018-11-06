@@ -39,7 +39,7 @@ sudo apt-get install \
 	git \
 	gparted \
 	htop \
-	keepassx \
+	keepass2 \
 	nodejs \
 	powertop \
 	silversearcher-ag \
