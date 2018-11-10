@@ -47,6 +47,7 @@ sudo apt-get install \
 	speedcrunch \
 	sublime-text \
 	tree \
+	tlp \
 	vim
 
 sudo apt-get clean
