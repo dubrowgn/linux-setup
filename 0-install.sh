@@ -1,5 +1,6 @@
 #!/bin/bash
 
+alias wget="wget -q --show-progress"
 root_path="$(cd "$(dirname "$0")" && pwd)"
 
 # setup node.js repo
@@ -58,16 +59,31 @@ curl https://sh.rustup.rs -sSf | \
 source $HOME/.cargo/env
 cargo install tcalc
 
+mkdir -p $HOME/.bin
+cd $HOME/.bin
+
+# diff-so-fancy
+wget https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy
+chmod +x diff-so-fancy
+
+# renamer
+wget "https://dubrowgn.com/media/renamer/files/Renamer [1.3.2 - linux64].zip" -O renamer.zip
+unzip renamer.zip
+rm renamer.zip
+mv renamer-* renamer
+chmod +x renamer
+
 cd ~/Downloads
 
 # bat
-wget -q --show-progress https://github.com/sharkdp/bat/releases/download/v0.7.1/bat_0.7.1_amd64.deb
+wget https://github.com/sharkdp/bat/releases/download/v0.7.1/bat_0.7.1_amd64.deb
 sudo dpkg -i bat_0.7.1_amd64.deb
 
 # fd
-wget -q --show-progress https://github.com/sharkdp/fd/releases/download/v7.1.0/fd_7.1.0_amd64.deb
+wget https://github.com/sharkdp/fd/releases/download/v7.1.0/fd_7.1.0_amd64.deb
 sudo dpkg -i fd_7.1.0_amd64.deb
 
 # steam
-wget -q --show-progress https://steamcdn-a.akamaihd.net/client/installer/steam.deb
+wget https://steamcdn-a.akamaihd.net/client/installer/steam.deb
 sudo dpkg -i steam.deb
+
