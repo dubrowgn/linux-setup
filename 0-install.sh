@@ -4,7 +4,7 @@ alias wget="wget -q --show-progress"
 root_path="$(cd "$(dirname "$0")" && pwd)"
 
 # setup node.js repo
-curl -sL https://deb.nodesource.com/setup_10.x | \
+curl -sL https://deb.nodesource.com/setup_11.x | \
 	sudo -E bash -
 
 # add sublime text repo
