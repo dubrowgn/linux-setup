@@ -49,7 +49,8 @@ sudo apt-get install \
 	sublime-text \
 	tree \
 	tlp \
-	vim
+	vim \
+	vlc
 
 sudo apt-get clean
 
