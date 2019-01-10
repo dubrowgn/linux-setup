@@ -33,6 +33,8 @@ sudo apt-get purge \
 
 sudo apt-get autoremove
 
+sudo apt-get dist-upgrade
+
 sudo apt-get install \
 	build-essential \
 	conky \
