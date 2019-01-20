@@ -28,8 +28,7 @@ sudo apt-get purge \
 	rhythmbox \
 	thunderbird \
 	tomboy \
-	transmission-gtk \
-	xplayer
+	transmission-gtk
 
 sudo apt-get autoremove
 
