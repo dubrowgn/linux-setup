@@ -1,0 +1,5 @@
+
+#custom
+
+export EDITOR=vim
+
