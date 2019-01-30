@@ -41,6 +41,7 @@ sudo apt-get install \
 	git \
 	gparted \
 	htop \
+	jq \
 	keepass2 \
 	nodejs \
 	powertop \
