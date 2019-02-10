@@ -75,11 +75,11 @@ unzip pup_v0.4.0_linux_amd64.zip
 rm pup_v0.4.0_linux_amd64.zip
 
 # renamer
-wget "https://dubrowgn.com/media/renamer/files/Renamer [1.3.2 - linux64].zip" -O renamer.zip
+wget "https://dubrowgn.com/media/renamer/files/renamer-latest (linux x64).zip" -O renamer.zip
 unzip renamer.zip
 rm renamer.zip
-mv renamer-* renamer
-chmod +x renamer
+echo -e '#!'"/bin/bash\n\nQT_SCREEN_SCALE_FACTORS=2 /home/dubrowgn/.bin/$(ls renamer-*)" > renamer
+chmod +x renamer*
 
 cd ~/Downloads
 
