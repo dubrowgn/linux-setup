@@ -1,5 +1,9 @@
 #!/bin/bash
 
+alias cat="bat --style plain --paging never"
+alias clear="clear && clear"
+alias fd="fd -HI"
+
 function regex() {
 	local _ml=false;
 	local _spat="";
