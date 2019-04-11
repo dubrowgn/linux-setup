@@ -36,7 +36,7 @@ sudo apt-get dist-upgrade
 
 sudo apt-get install \
 	build-essential \
-	conky \
+	conky-all \
 	firefox \
 	git \
 	gparted \
