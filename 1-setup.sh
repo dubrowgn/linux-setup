@@ -5,7 +5,7 @@ home_path="$root_path/home";
 
 copy_path="$home_path/copy";
 for f in $(ls -A $copy_path); do
-	cp -i "$copy_path/$f" "$HOME/$f";
+	cp -Ri "$copy_path/$f" "$HOME/$f";
 done
 
 append_path="$home_path/append";
