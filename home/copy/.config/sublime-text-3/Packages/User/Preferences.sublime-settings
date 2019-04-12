@@ -1,0 +1,6 @@
+// Settings in here override those in "Default/Preferences.sublime-settings",
+// and are overridden in turn by syntax-specific settings.
+{
+	"auto_match_enabled": false,
+	"draw_white_space": "all"
+}
