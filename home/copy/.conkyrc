@@ -19,8 +19,9 @@ conky.config = {
 	font = 'DejaVu Sans Mono:size=12',
 	gap_x = dip(16),
 	gap_y = dip(16),
-	lua_load = '~/.conky/main.lua',
+	lua_load = '~/.conky/main.lua ~/.conky/iops.lua',
 	lua_draw_hook_post = 'draw',
+	lua_draw_hook_pre = 'iops_query',
 	minimum_height = dip(5),
 	minimum_width = dip(5),
 	net_avg_samples = 2,
@@ -47,20 +48,21 @@ ${color 0080ff}CPU${color}
 
 ${voffset ]] .. dip(68) .. [[}
 
-Process $alignr PID    Mem  CPU %
+ PID  Process $alignr   Mem   CPU %
 $hr
-${top name 1} $alignr ${top pid 1} ${top mem 1} ${top cpu 1}
-${top name 2} $alignr ${top pid 2} ${top mem 2} ${top cpu 2}
-${top name 3} $alignr ${top pid 3} ${top mem 3} ${top cpu 3}
-${top name 4} $alignr ${top pid 4} ${top mem 4} ${top cpu 4}
-${top name 5} $alignr ${top pid 5} ${top mem 5} ${top cpu 5}
-${top name 6} $alignr ${top pid 6} ${top mem 6} ${top cpu 6}
-${top name 7} $alignr ${top pid 7} ${top mem 7} ${top cpu 7}
+${top pid 1} ${top name 1} $alignr ${top mem 1} ${top cpu 1}
+${top pid 2} ${top name 2} $alignr ${top mem 2} ${top cpu 2}
+${top pid 3} ${top name 3} $alignr ${top mem 3} ${top cpu 3}
+${top pid 4} ${top name 4} $alignr ${top mem 4} ${top cpu 4}
+${top pid 5} ${top name 5} $alignr ${top mem 5} ${top cpu 5}
+${top pid 6} ${top name 6} $alignr ${top mem 6} ${top cpu 6}
+${top pid 7} ${top name 7} $alignr ${top mem 7} ${top cpu 7}
+${top pid 8} ${top name 8} $alignr ${top mem 8} ${top cpu 8}
 
 ${color 0080ff}MEMORY${color}
 
 RAM $alignc $mem / $memmax $alignr $memperc%
-${memgraph cpu0 64,640 0080ff 0080ff}
+${memgraph cpu0 64,700 0080ff 0080ff}
 swap $alignc ${swap} / ${swapmax} $alignr ${swapperc}%
 ${swapbar}
 
@@ -68,8 +70,8 @@ ${color 0080ff}FILESYSTEM${color}
 
 / $alignc ${fs_used /} / ${fs_size /} $alignr ${fs_used_perc /}%
 ${fs_bar /}
-Read  $alignc ${diskio_read}/s $alignr ${execi 10 .conky/iops.sh sda r} IO/s
-Write $alignc ${diskio_write}/s $alignr ${execi 10 .conky/iops.sh sda w} IO/s
+Read  $alignc ${diskio_read}/s $alignr ${lua iops_read sda} IO/s
+Write $alignc ${diskio_write}/s $alignr ${lua iops_write sda} IO/s
 
 dubrowgn $alignc ${fs_used /mnt/dubrowgn} / ${fs_size /mnt/dubrowgn} $alignr ${fs_used_perc /mnt/dubrowgn}%
 ${fs_bar /mnt/dubrowgn}

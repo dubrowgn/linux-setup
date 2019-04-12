@@ -103,7 +103,7 @@ function draw_cpu_tile(cairo, cpu, offset)
 	local col = (cpu - 1) % tiles_per_row
 
 	local pad = dip(4)
-	local size = dip(37)
+	local size = dip(41)
 	local dims = { x=pad + offset.x, y=pad + offset.y, w=size, h=size }
 	dims.x = dims.x + (pad + dims.w) * col
 	dims.y = dims.y + (pad + dims.h) * row
