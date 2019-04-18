@@ -2,13 +2,31 @@ package.path = './.conky/?.lua;' .. package.path
 require('cairo')
 require('config')
 require('draw')
+require('io')
 require('lib')
+
+local hwmod_id
+
+function cpu_init()
+	local core_path = '/sys/devices/platform/coretemp.0/hwmon'
+
+	for i=0,16 do
+		local f = io.open(core_path .. '/hwmon' .. i)
+		if f then
+			hwmon_id = i
+			io.close(f)
+			break
+		end
+	end
+end
+
+cpu_init()
 
 function cpu_info(cpu)
 	return {
 		freq = tonumber(conky_parse(string.format('${freq_g %u}', cpu))),
 		use = tonumber(conky_parse(string.format('${cpu cpu%u}', cpu))),
-		temp = tonumber(conky_parse(string.format('${hwmon 1 temp %u}', cpu))),
+		temp = tonumber(conky_parse(string.format('${hwmon %u temp %u}', hwmon_id, cpu))),
 	}
 end
 
