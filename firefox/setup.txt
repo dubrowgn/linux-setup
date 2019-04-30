@@ -14,7 +14,8 @@ https://addons.mozilla.org/en-US/firefox/addon/tree-style-tab/
 # 0 - allow auto-play (default)
 # 1 - do not auto-play
 # 2 - prompt user for auto-play
-media.autoplay.default = 2
+media.autoplay.default = 1
+media.autoplay.allow-muted = false
 
 browser.urlbar.clickSelectsAll = false
 extensions.pocket.enabled = false
