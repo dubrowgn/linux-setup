@@ -46,18 +46,16 @@ conky.config = {
 conky.text = [[
 ${color 0080ff}CPU${color}
 
+${cpugraph cpu0 64,700 0080ff ff0000 -t}
 ${voffset ]] .. dip(68) .. [[}
 
- PID  Process $alignr   Mem   CPU %
+ PID  Process $alignr   Mem     CPU
 $hr
-${top pid 1} ${top name 1} $alignr ${top mem 1} ${top cpu 1}
-${top pid 2} ${top name 2} $alignr ${top mem 2} ${top cpu 2}
-${top pid 3} ${top name 3} $alignr ${top mem 3} ${top cpu 3}
-${top pid 4} ${top name 4} $alignr ${top mem 4} ${top cpu 4}
-${top pid 5} ${top name 5} $alignr ${top mem 5} ${top cpu 5}
-${top pid 6} ${top name 6} $alignr ${top mem 6} ${top cpu 6}
-${top pid 7} ${top name 7} $alignr ${top mem 7} ${top cpu 7}
-${top pid 8} ${top name 8} $alignr ${top mem 8} ${top cpu 8}
+${top pid 1} ${top name 1}$alignr${top mem_res 1}${top cpu 1}%
+${top pid 2} ${top name 2}$alignr${top mem_res 2}${top cpu 2}%
+${top pid 3} ${top name 3}$alignr${top mem_res 3}${top cpu 3}%
+${top pid 4} ${top name 4}$alignr${top mem_res 4}${top cpu 4}%
+${top pid 5} ${top name 5}$alignr${top mem_res 5}${top cpu 5}%
 
 ${color 0080ff}MEMORY${color}
 
@@ -66,22 +64,33 @@ ${memgraph cpu0 64,700 0080ff 0080ff}
 swap $alignc ${swap} / ${swapmax} $alignr ${swapperc}%
 ${swapbar}
 
+ PID  Process $alignr   Mem     CPU
+$hr
+${top_mem pid 1} ${top_mem name 1}$alignr${top_mem mem_res 1}${top_mem cpu 1}%
+${top_mem pid 2} ${top_mem name 2}$alignr${top_mem mem_res 2}${top_mem cpu 2}%
+${top_mem pid 3} ${top_mem name 3}$alignr${top_mem mem_res 3}${top_mem cpu 3}%
+${top_mem pid 4} ${top_mem name 4}$alignr${top_mem mem_res 4}${top_mem cpu 4}%
+${top_mem pid 5} ${top_mem name 5}$alignr${top_mem mem_res 5}${top_mem cpu 5}%
+
 ${color 0080ff}FILESYSTEM${color}
 
 / $alignc ${fs_used /} / ${fs_size /} $alignr ${fs_used_perc /}%
-${fs_bar /}
+${color 0080ff}${fs_bar /}${color}
+${voffset -38}${color gray}${execbar echo 0}${color}
 Read  $alignc ${diskio_read}/s $alignr ${lua iops_read sda} IO/s
 Write $alignc ${diskio_write}/s $alignr ${lua iops_write sda} IO/s
 
 dubrowgn $alignc ${fs_used /mnt/dubrowgn} / ${fs_size /mnt/dubrowgn} $alignr ${fs_used_perc /mnt/dubrowgn}%
-${fs_bar /mnt/dubrowgn}
+${color 0080ff}${fs_bar /mnt/dubrowgn}${color}
+${voffset -38}${color gray}${execbar echo 0}${color}
 
 public $alignc ${fs_used /mnt/public} / ${fs_size /mnt/public} $alignr ${fs_used_perc /mnt/public}%
-${fs_bar /mnt/public}
+${color 0080ff}${fs_bar /mnt/public}${color}
+${voffset -38}${color gray}${execbar echo 0}${color}
 
 ${color 0080ff}NETWORK${color}
 
 Interface ${alignc -10} Down ${alignr} Up
 eno1 ${alignc -20} ${downspeed eno1}/s ${alignr} ${upspeed eno1}/s
+${voffset -168}
 ]]
-
