@@ -7,6 +7,9 @@ if [[ $1 == "-y" ]]; then
 fi
 
 version_filter=$1
+if [[ $version_filter == "" ]]; then
+	version_filter="[0-9]"
+fi
 
 version=$(apt-cache policy linux-image-$version_filter*-generic | \
 	grep -o $version_filter.*-generic | \
