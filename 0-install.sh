@@ -1,5 +1,17 @@
 #!/bin/bash
 
+function prompt() {
+	local _msg="$1"
+
+	echo "$_msg"
+	select yn in "Yes" "No"; do
+		case $yn in
+		Yes ) return 0;;
+		No ) return 1;;
+		esac
+	done
+}
+
 alias wget="wget -q --show-progress"
 root_path="$(cd "$(dirname "$0")" && pwd)"
 
@@ -92,6 +104,8 @@ wget https://github.com/sharkdp/fd/releases/download/v7.1.0/fd_7.1.0_amd64.deb
 sudo dpkg -i fd_7.1.0_amd64.deb
 
 # steam
-wget https://steamcdn-a.akamaihd.net/client/installer/steam.deb
-sudo dpkg -i steam.deb
+if prompt "Install Steam client?"; then
+	wget https://steamcdn-a.akamaihd.net/client/installer/steam.deb
+	sudo dpkg -i steam.deb
+fi
 

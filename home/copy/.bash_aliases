@@ -4,6 +4,18 @@ alias cat="bat --style plain --paging never"
 alias clear="clear && clear"
 alias fd="fd -HI"
 
+function prompt() {
+	local _msg="$1"
+
+	echo "$_msg"
+	select yn in "Yes" "No"; do
+		case $yn in
+		Yes ) return 0;;
+		No ) return 1;;
+		esac
+	done
+}
+
 function regex() {
 	local _ml=false;
 	local _spat="";
