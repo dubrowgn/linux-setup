@@ -15,6 +15,8 @@ function prompt() {
 alias wget="wget -q --show-progress"
 root_path="$(cd "$(dirname "$0")" && pwd)"
 
+opt_in_packages=()
+
 # setup node.js repo
 curl -sL https://deb.nodesource.com/setup_11.x | \
 	sudo -E bash -
@@ -24,6 +26,16 @@ wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | \
 	sudo apt-key add -
 echo "deb https://download.sublimetext.com/ apt/stable/" | \
 	sudo tee /etc/apt/sources.list.d/sublime-text.list
+
+# add syncthing repo
+wget -qO - https://syncthing.net/release-key.txt | \
+	sudo apt-key add -
+echo "deb https://apt.syncthing.net/ syncthing stable" | \
+	sudo tee /etc/apt/sources.list.d/syncthing.list
+
+if prompt "Install syncthing?"; then
+	opt_in_packages+=("syncthing")
+fi
 
 # use Ubuntu firefox package
 sudo cp $root_path/etc/apt/preferences.d/* /etc/apt/preferences.d/.
@@ -40,7 +52,8 @@ sudo apt-get purge \
 	rhythmbox \
 	thunderbird \
 	tomboy \
-	transmission-gtk
+	transmission-gtk \
+	${opt_in_packages[@]}
 
 sudo apt-get autoremove
 
