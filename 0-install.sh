@@ -66,6 +66,7 @@ sudo apt-get install \
 	git \
 	gparted \
 	htop \
+	httpie \
 	jq \
 	keepass2 \
 	nodejs \
@@ -93,6 +94,12 @@ cd $HOME/.bin
 # diff-so-fancy
 wget https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy
 chmod +x diff-so-fancy
+
+# micro text editor
+wget https://github.com/zyedidia/micro/releases/download/v1.4.1/micro-1.4.1-linux64.tar.gz
+tar -xzf micro-1.4.1-linux64.tar.gz
+mv micro-1.4.1/micro .
+rm -rf micro-1.4.1
 
 # pup
 wget https://github.com/ericchiang/pup/releases/download/v0.4.0/pup_v0.4.0_linux_amd64.zip
