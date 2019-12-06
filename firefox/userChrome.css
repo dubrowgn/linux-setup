@@ -1,9 +1,13 @@
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 
-/*
+/* https://github.com/piroor/treestyletab/wiki/Code-snippets-for-custom-style-rules#for-userchromecss
+ *
  * 1) open `about:support`, and open profile folder
  * 2) create folder `chrome`
  * 3) place this file inside using the filename `userChrome.css`
+ *
+ * 1) open `about:config`
+ * 2) toolkit.legacyUserProfileCustomizations.stylesheets -> true
  */
 
 #TabsToolbar {
