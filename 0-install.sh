@@ -52,8 +52,7 @@ sudo apt-get purge \
 	rhythmbox \
 	thunderbird \
 	tomboy \
-	transmission-gtk \
-	${opt_in_packages[@]}
+	transmission-gtk
 
 sudo apt-get autoremove
 
@@ -78,7 +77,8 @@ sudo apt-get install \
 	tree \
 	tlp \
 	vim \
-	vlc
+	vlc \
+	${opt_in_packages[@]}
 
 sudo apt-get clean
 
