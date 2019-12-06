@@ -113,6 +113,14 @@ rm renamer.zip
 echo -e '#!'"/bin/bash\n\nQT_SCREEN_SCALE_FACTORS=2 /home/dubrowgn/.bin/$(ls renamer-*)" > renamer
 chmod +x renamer*
 
+# telegram
+if prompt "Install Telegram client?"; then
+	wget --output-document=telegram.tar.xz https://telegram.org/dl/desktop/linux
+	tar -xvf telegram.tar.xz
+	rm telegram.tar.xz
+	ln -s Telegram/Telegram telegram
+fi
+
 cd ~/Downloads
 
 # bat
