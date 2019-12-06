@@ -47,6 +47,7 @@ sudo apt-get purge \
 	gnome-calculator \
 	hexchat \
 	mintinstall \
+	mintreport \
 	mintupdate \
 	mintwelcome \
 	rhythmbox \
@@ -128,4 +129,3 @@ if prompt "Install Steam client?"; then
 	wget https://steamcdn-a.akamaihd.net/client/installer/steam.deb
 	sudo dpkg -i steam.deb
 fi
-
