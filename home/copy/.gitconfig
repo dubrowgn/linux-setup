@@ -2,6 +2,7 @@
 	lol = log --graph --pretty=format:'%C(yellow)%h%Creset %C(bold blue)<%an>%Creset %C(green)(%ar)%Creset %C(red)%d%Creset %s' -10
 	sol = log --graph --pretty=format:'%C(yellow)%h%Creset %C(bold blue)<%an>%Creset %C(green)(%ar)%Creset %C(red)%d%Creset %s' -1
 	recommit = !git commit --reuse-message=HEAD --amend --author=\"$(git config user.name) <$(git config user.email)>\"
+	unstage = reset HEAD
 
 [color]
 	ui = auto
