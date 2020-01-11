@@ -1,6 +1,3 @@
-# TODO - script this:
-# https://askubuntu.com/questions/313483/how-do-i-change-firefoxs-aboutconfig-from-a-shell-script
-
 #### Extensions ####
 
 # uBlock Origin, by Raymoind Hill (gorhill)
@@ -8,23 +5,3 @@ https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/
 
 # Tree Style Tab, by Piroi
 https://addons.mozilla.org/en-US/firefox/addon/tree-style-tab/
-
-#### Config Settings ####
-
-# 0 - allow auto-play (default)
-# 1 - do not auto-play
-# 2 - prompt user for auto-play
-media.autoplay.default = 1
-media.autoplay.allow-muted = false
-
-browser.urlbar.clickSelectsAll = false
-extensions.pocket.enabled = false
-findbar.highlightAll = true
-general.warnOnAboutConfig = false
-
-browser.newtabpage.activity-stream.showSearch = false
-browser.newtabpage.activity-stream.feeds.section.highlights = false
-browser.newtabpage.activity-stream.feeds.section.topstories = false
-browser.newtabpage.activity-stream.feeds.snippets = false
-browser.newtabpage.activity-stream.feeds.topsites = false
-
