@@ -87,7 +87,7 @@ sudo apt-get clean
 curl https://sh.rustup.rs -sSf | \
 	sh -s -- -y
 source $HOME/.cargo/env
-cargo install tcalc
+cargo install broot tcalc
 
 mkdir -p $HOME/.bin
 cd $HOME/.bin
