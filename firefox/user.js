@@ -1,7 +1,8 @@
 // 0 - allow auto-play (default)
 // 1 - do not auto-play
 // 2 - prompt user for auto-play
-user_pref("media.autoplay.default", 1);
+// 5 - allow neither audio nor video
+user_pref("media.autoplay.default", 5);
 user_pref("media.autoplay.allow-muted", false);
 
 user_pref("browser.aboutConfig.showWarning", false);
@@ -14,3 +15,4 @@ user_pref("browser.urlbar.clickSelectsAll", false);
 user_pref("extensions.pocket.enabled", false);
 user_pref("findbar.highlightAll", true);
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
+user_pref("signon.rememberSignons", false);
