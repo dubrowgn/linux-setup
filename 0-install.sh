@@ -37,6 +37,10 @@ if prompt "Install syncthing?"; then
 	opt_in_packages+=("syncthing")
 fi
 
+if prompt "Add proprietary graphics apt repo?"; then
+	sudo add-apt-repository ppa:graphics-drivers/ppa
+fi
+
 # use Ubuntu firefox package
 sudo cp $root_path/etc/apt/preferences.d/* /etc/apt/preferences.d/.
 
