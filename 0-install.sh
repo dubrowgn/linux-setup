@@ -83,6 +83,7 @@ sudo apt-get install \
 	tlp \
 	vim \
 	vlc \
+	xclip \
 	${opt_in_packages[@]}
 
 sudo apt-get clean
