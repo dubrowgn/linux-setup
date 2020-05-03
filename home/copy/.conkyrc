@@ -46,6 +46,7 @@ conky.config = {
 conky.text = [[
 ${color 0080ff}CPU${color}
 
+${alignc}${exec sensors | grep -oE '^(Package|Tdie).*\(' | grep -oE '[0-9]+\.[0-9]°C'}
 ${cpugraph cpu0 64,700 0080ff ff0000 -t}
 ${voffset ]] .. dip(68) .. [[}
 

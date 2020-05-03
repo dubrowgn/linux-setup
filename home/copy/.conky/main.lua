@@ -5,28 +5,10 @@ require('draw')
 require('io')
 require('lib')
 
-local hwmod_id
-
-function cpu_init()
-	local core_path = '/sys/devices/platform/coretemp.0/hwmon'
-
-	for i=0,16 do
-		local f = io.open(core_path .. '/hwmon' .. i)
-		if f then
-			hwmon_id = i
-			io.close(f)
-			break
-		end
-	end
-end
-
-cpu_init()
-
 function cpu_info(cpu)
 	return {
 		freq = tonumber(conky_parse(string.format('${freq_g %u}', cpu))),
 		use = tonumber(conky_parse(string.format('${cpu cpu%u}', cpu))),
-		temp = tonumber(conky_parse(string.format('${hwmon %u temp %u}', hwmon_id, cpu))),
 	}
 end
 
@@ -47,9 +29,8 @@ function draw_cpu_tile(cairo, cpu, offset)
 
 	local tile_color = lerp(color.blue, color.red, info.use/100)
 	draw_box(cairo, dims, tile_color)
-	draw_text_center(cairo, { x=center.x, y=center.y - dip(8) }, font_size * 1.5, color.white, info.use .. '%')
-	draw_text_center(cairo, { x=center.x, y=center.y + dip(2) }, font_size, color.white, info.freq .. ' GHz')
-	draw_text_center(cairo, { x=center.x, y=center.y + dip(8) }, font_size, color.white, info.temp .. ' °C')
+	draw_text_center(cairo, { x=center.x, y=center.y - dip(6) }, font_size * 1.5, color.white, info.use .. '%')
+	draw_text_center(cairo, { x=center.x, y=center.y + dip(6) }, font_size, color.white, info.freq .. ' GHz')
 
 end
 
