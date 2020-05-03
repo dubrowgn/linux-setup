@@ -16,7 +16,7 @@ conky.config = {
 	draw_outline = false,
 	draw_shades = false,
 	extra_newline = false,
-	font = 'DejaVu Sans Mono:size=12',
+	font = 'DejaVu Sans Mono:size=9',
 	gap_x = dip(16),
 	gap_y = dip(16),
 	lua_load = '~/.conky/main.lua ~/.conky/iops.lua',
