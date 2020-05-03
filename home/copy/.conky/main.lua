@@ -6,6 +6,7 @@ require('math')
 
 local nproc = tonumber(exec('nproc'))
 local tile_layout = constrain_xy(nproc, 4)
+local tile_size = dip(360 / tile_layout.x)
 
 function cpu_info(cpu)
 	return {
@@ -19,15 +20,15 @@ function draw_cpu_tile(cairo, cpu, offset)
 	local row = math.floor((cpu - 1) / tile_layout.x)
 	local col = (cpu - 1) % tile_layout.x
 
-	local pad = dip(4)
-	local size = dip(41)
-	local dims = { x=pad + offset.x, y=pad + offset.y, w=size, h=size }
-	dims.x = dims.x + (pad + dims.w) * col
-	dims.y = dims.y + (pad + dims.h) * row
+	local dims = {
+		x=offset.x + tile_size * col,
+		y=offset.y + tile_size * row,
+		w=tile_size,
+		h=tile_size,
+	}
 	local center = dims_center(dims)
 
 	local info = cpu_info(cpu)
-
 	local tile_color = lerp(color.blue, color.red, info.use/100)
 	draw_box(cairo, dims, tile_color)
 	draw_text_center(cairo, { x=center.x, y=center.y - dip(6) }, font_size * 1.5, color.white, info.use .. '%')
@@ -48,7 +49,7 @@ function conky_draw()
 	)
 	local cairo = cairo_create(surface)
 
-	local offset = { x=dip(4), y=dip(120) }
+	local offset = { x=dip(8), y=dip(120) }
 	for i=1,nproc do
 		draw_cpu_tile(cairo, i, offset)
 	end

@@ -1,5 +1,6 @@
 require('config')
 require('io')
+require('math')
 
 function constrain_xy(count, ratio)
 	local limit = math.floor(math.sqrt(count))
