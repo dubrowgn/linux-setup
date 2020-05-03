@@ -5,6 +5,8 @@ require('draw')
 require('io')
 require('lib')
 
+local nproc = tonumber(exec('nproc'))
+
 function cpu_info(cpu)
 	return {
 		freq = tonumber(conky_parse(string.format('${freq_g %u}', cpu))),
@@ -49,7 +51,7 @@ function conky_draw()
 	local cairo = cairo_create(surface)
 
 	local offset = { x=dip(0), y=dip(44) }
-	for i=1,config.cpus do
+	for i=1,nproc do
 		draw_cpu_tile(cairo, i, offset)
 	end
 
