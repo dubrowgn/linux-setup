@@ -1,11 +1,11 @@
 package.path = './.conky/?.lua;' .. package.path
 require('cairo')
-require('config')
 require('draw')
-require('io')
 require('lib')
+require('math')
 
 local nproc = tonumber(exec('nproc'))
+local tile_layout = constrain_xy(nproc, 4)
 
 function cpu_info(cpu)
 	return {
@@ -16,9 +16,8 @@ end
 
 function draw_cpu_tile(cairo, cpu, offset)
 	local font_size = dip(12)
-	local tiles_per_row = 4
-	local row = math.floor((cpu - 1) / tiles_per_row)
-	local col = (cpu - 1) % tiles_per_row
+	local row = math.floor((cpu - 1) / tile_layout.x)
+	local col = (cpu - 1) % tile_layout.x
 
 	local pad = dip(4)
 	local size = dip(41)
@@ -33,7 +32,6 @@ function draw_cpu_tile(cairo, cpu, offset)
 	draw_box(cairo, dims, tile_color)
 	draw_text_center(cairo, { x=center.x, y=center.y - dip(6) }, font_size * 1.5, color.white, info.use .. '%')
 	draw_text_center(cairo, { x=center.x, y=center.y + dip(6) }, font_size, color.white, info.freq .. ' GHz')
-
 end
 
 function conky_draw()
@@ -50,7 +48,7 @@ function conky_draw()
 	)
 	local cairo = cairo_create(surface)
 
-	local offset = { x=dip(0), y=dip(120) }
+	local offset = { x=dip(4), y=dip(120) }
 	for i=1,nproc do
 		draw_cpu_tile(cairo, i, offset)
 	end
