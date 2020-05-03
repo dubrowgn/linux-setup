@@ -77,21 +77,21 @@ ${color 0080ff}FILESYSTEM${color}
 
 / $alignc ${fs_used /} / ${fs_size /} $alignr ${fs_used_perc /}%
 ${color 0080ff}${fs_bar /}${color}
-${voffset -38}${color gray}${execbar echo 0}${color}
+${voffset -29}${color gray}${execbar echo 0}${color}
 Read  $alignc ${diskio_read}/s $alignr ${lua iops_read sda} IO/s
 Write $alignc ${diskio_write}/s $alignr ${lua iops_write sda} IO/s
 
-dubrowgn $alignc ${fs_used /mnt/dubrowgn} / ${fs_size /mnt/dubrowgn} $alignr ${fs_used_perc /mnt/dubrowgn}%
-${color 0080ff}${fs_bar /mnt/dubrowgn}${color}
-${voffset -38}${color gray}${execbar echo 0}${color}
+dubrowgn $alignc ${fs_used /nas/dubrowgn} / ${fs_size /nas/dubrowgn} $alignr ${fs_used_perc /nas/dubrowgn}%
+${color 0080ff}${fs_bar /nas/dubrowgn}${color}
+${voffset -29}${color gray}${execbar echo 0}${color}
 
-public $alignc ${fs_used /mnt/public} / ${fs_size /mnt/public} $alignr ${fs_used_perc /mnt/public}%
-${color 0080ff}${fs_bar /mnt/public}${color}
-${voffset -38}${color gray}${execbar echo 0}${color}
+public $alignc ${fs_used /nas/public} / ${fs_size /nas/public} $alignr ${fs_used_perc /nas/public}%
+${color 0080ff}${fs_bar /nas/public}${color}
+${voffset -29}${color gray}${execbar echo 0}${color}
 
 ${color 0080ff}NETWORK${color}
 
 Interface ${alignc -10} Down ${alignr} Up
 eno1 ${alignc -20} ${downspeed eno1}/s ${alignr} ${upspeed eno1}/s
-${voffset -168}
+${voffset -130}
 ]]
