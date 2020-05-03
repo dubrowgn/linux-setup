@@ -47,7 +47,7 @@ conky.text = [[
 ${color 0080ff}CPU${color}
 
 ${alignc}${exec sensors | grep -oE '^(Package|Tdie).*\(' | grep -oE '[0-9]+\.[0-9]°C'}
-${cpugraph cpu0 64,700 0080ff ff0000 -t}
+${cpugraph cpu0 ]] .. dip(32) .. [[,]] .. dip(360) .. [[ 0080ff ff0000 -t}
 ${voffset ]] .. dip(68) .. [[}
 
  PID  Process $alignr   Mem     CPU
@@ -61,7 +61,7 @@ ${top pid 5} ${top name 5}$alignr${top mem_res 5}${top cpu 5}%
 ${color 0080ff}MEMORY${color}
 
 RAM $alignc $mem / $memmax $alignr $memperc%
-${memgraph cpu0 64,700 0080ff 0080ff}
+${memgraph cpu0 ]] .. dip(32) .. [[,]] .. dip(360) .. [[ 0080ff 0080ff}
 swap $alignc ${swap} / ${swapmax} $alignr ${swapperc}%
 ${swapbar}
 
