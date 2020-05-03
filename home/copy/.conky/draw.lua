@@ -1,4 +1,3 @@
-require('lib')
 require('cairo')
 
 color = {
@@ -55,15 +54,15 @@ function text_center(cairo, pos, text)
 
 	cairo_move_to(
 		cairo,
-		dip(pos.x) - (dims.w/2 + dims.x),
-		dip(pos.y) - (dims.h/2 + dims.y)
+		pos.x - (dims.w/2 + dims.x),
+		pos.y - (dims.h/2 + dims.y)
 	)
 end
 
 function draw_text(cairo, pos, size, color, text)
 	text_setup(cairo, size)
 
-	cairo_move_to(cairo, dip(pos.x), size + dip(pos.y))
+	cairo_move_to(cairo, pos.x, size + pos.y)
 	cairo_set_source_rgba(cairo, color.r, color.g, color.b, color.a)
 	cairo_show_text(cairo, text)
 	cairo_stroke(cairo)
@@ -79,7 +78,7 @@ function draw_text_center(cairo, pos, size, color, text)
 end
 
 function draw_box(cairo, dims, color)
-	cairo_rectangle(cairo, dip(dims.x), dip(dims.y), dip(dims.w), dip(dims.h))
+	cairo_rectangle(cairo, dims.x, dims.y, dims.w, dims.h)
 	cairo_set_source_rgba(cairo, color.r, color.g, color.b, color.a)
 	cairo_fill(cairo)
 end
