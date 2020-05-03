@@ -67,6 +67,7 @@ sudo apt-get install \
 	build-essential \
 	conky-all \
 	firefox \
+	gdebi \
 	git \
 	gparted \
 	htop \
