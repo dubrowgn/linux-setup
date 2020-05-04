@@ -1,4 +1,3 @@
-require('config')
 require('io')
 require('math')
 
@@ -20,14 +19,17 @@ function constrain_xy(count, ratio)
 	return { x=x, y=y }
 end
 
-function dip(px)
-	return px * config.px_scalar
-end
-
 function exec(cmd)
 	local pipe = io.popen(cmd)
 	stdout = pipe:read('*a')
 	pipe:close()
 
 	return stdout
+end
+
+local px_scalar =
+	tonumber(exec('gsettings get org.gnome.desktop.interface scaling-factor | grep -oE "[0-9]$"')) or 1
+
+function dip(px)
+	return px * px_scalar
 end
