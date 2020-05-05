@@ -28,7 +28,10 @@ function exec(cmd)
 end
 
 local px_scalar =
-	tonumber(exec('gsettings get org.gnome.desktop.interface scaling-factor | grep -oE "[0-9]$"')) or 1
+	tonumber(exec('gsettings get org.gnome.desktop.interface scaling-factor | grep -oE "[0-9]$"'))
+if (px_scalar == nil or px_scalar < 1) then
+	px_scalar = 1
+end
 
 function dip(px)
 	return px * px_scalar
