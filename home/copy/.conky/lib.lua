@@ -41,7 +41,7 @@ end
 font_px = dip(12)
 
 -- 3/4 * 1.618 (golden ratio)
-line_height = 1.2135 * font_px
+line_height = math.floor(1.2135 * font_px + 0.5)
 
 nproc = tonumber(exec('nproc'))
 tile_layout = constrain_xy(nproc, 4)
