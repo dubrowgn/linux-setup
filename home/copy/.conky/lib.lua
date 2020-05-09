@@ -42,3 +42,12 @@ font_px = dip(12)
 
 -- 3/4 * 1.618 (golden ratio)
 line_height = 1.2135 * font_px
+
+nproc = tonumber(exec('nproc'))
+tile_layout = constrain_xy(nproc, 4)
+
+tiles_width = dip(360)
+tile_size = tiles_width / tile_layout.x
+tiles_height = tile_size * tile_layout.y
+
+graph_height = dip(32)

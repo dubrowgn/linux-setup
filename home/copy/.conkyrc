@@ -48,9 +48,8 @@ ${color 0080ff}CPU${color}
 
 Temp${goto ]] .. dip(90) .. [[}Processes${goto ]] .. dip(180) .. [[}Threads${goto ]] .. dip(270) .. [[}Freq${alignr}Usage
 ${exec sensors | grep -oE '^(Package|Tdie).*\(' | grep -oE '[0-9]+\.[0-9]°C'}${goto ]] .. dip(105) .. [[}${running_processes}/${processes}${goto ]] .. dip(185) .. [[}${running_threads}/${threads}${goto ]] .. dip(260) .. [[}${freq_g 0}GHz${alignr}${cpu cpu0}%
-${cpugraph cpu0 ]] .. dip(32) .. [[,]] .. dip(360) .. [[ 0080ff ff0000 -t}
-${voffset ]] .. dip(68) .. [[}
-
+${cpugraph cpu0 ]] .. graph_height .. [[,]] .. tiles_width .. [[ 0080ff ff0000 -t}
+${voffset ]] .. tiles_height .. [[}
  PID  Process $alignr   Mem     CPU
 $hr
 ${top pid 1} ${top name 1}$alignr${top mem_res 1}${top cpu 1}%
@@ -62,7 +61,7 @@ ${top pid 5} ${top name 5}$alignr${top mem_res 5}${top cpu 5}%
 ${color 0080ff}MEMORY${color}
 
 RAM $alignc $mem / $memmax $alignr $memperc%
-${memgraph cpu0 ]] .. dip(32) .. [[,]] .. dip(360) .. [[ 0080ff 0080ff}
+${memgraph cpu0 ]] .. graph_height .. [[,]] .. tiles_width .. [[ 0080ff 0080ff}
 swap $alignc ${swap} / ${swapmax} $alignr ${swapperc}%
 ${color 0080ff}${swapbar}${color}
 ${voffset -]] .. line_height .. [[}${color gray}${execbar echo 0}${color}
