@@ -40,7 +40,7 @@ function conky_draw()
 	)
 	local cairo = cairo_create(surface)
 
-	local offset = { x=dip(8), y=5.5 * line_height + graph_height }
+	local offset = { x=dip(8) + 1, y=round(5.5 * line_height + graph_height) }
 	for i=1,nproc do
 		draw_cpu_tile(cairo, i, offset)
 	end

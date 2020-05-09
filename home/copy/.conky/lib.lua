@@ -19,6 +19,10 @@ function constrain_xy(count, ratio)
 	return { x=x, y=y }
 end
 
+function round(value)
+	return math.floor(value + 0.5)
+end
+
 function exec(cmd)
 	local pipe = io.popen(cmd)
 	stdout = pipe:read('*a')
@@ -41,7 +45,7 @@ end
 font_px = dip(12)
 
 -- 3/4 * 1.618 (golden ratio)
-line_height = math.floor(1.2135 * font_px + 0.5)
+line_height = round(1.2135 * font_px)
 
 nproc = tonumber(exec('nproc'))
 tile_layout = constrain_xy(nproc, 4)
