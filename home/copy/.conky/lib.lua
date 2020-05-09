@@ -36,3 +36,9 @@ end
 function dip(px)
 	return px * px_scalar
 end
+
+-- 9pt * 4/3
+font_px = dip(12)
+
+-- 3/4 * 1.618 (golden ratio)
+line_height = 1.2135 * font_px
