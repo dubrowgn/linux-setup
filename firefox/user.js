@@ -14,5 +14,6 @@ user_pref("browser.newtabpage.activity-stream.showSearch", false);
 user_pref("browser.urlbar.clickSelectsAll", false);
 user_pref("extensions.pocket.enabled", false);
 user_pref("findbar.highlightAll", true);
-user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
+user_pref("network.trr.excluded-domains", "dubrowgn-srv,dubrowgn-wrt");
 user_pref("signon.rememberSignons", false);
+user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
