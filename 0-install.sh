@@ -102,12 +102,6 @@ cd $HOME/.bin
 wget https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy
 chmod +x diff-so-fancy
 
-# micro text editor
-wget https://github.com/zyedidia/micro/releases/download/v1.4.1/micro-1.4.1-linux64.tar.gz
-tar -xzf micro-1.4.1-linux64.tar.gz
-mv micro-1.4.1/micro .
-rm -rf micro-1.4.1
-
 # pup
 wget https://github.com/ericchiang/pup/releases/download/v0.4.0/pup_v0.4.0_linux_amd64.zip
 unzip pup_v0.4.0_linux_amd64.zip
@@ -136,6 +130,10 @@ sudo dpkg -i bat_0.12.1_amd64.deb
 # fd
 wget https://github.com/sharkdp/fd/releases/download/v7.4.0/fd_7.4.0_amd64.deb
 sudo dpkg -i fd_7.4.0_amd64.deb
+
+# micro text editor
+wget https://github.com/zyedidia/micro/releases/download/v2.0.6/micro-2.0.6-amd64.deb
+sudo dpkg -i micro-2.0.6-amd64.deb
 
 # steam
 if prompt "Install Steam client?"; then
