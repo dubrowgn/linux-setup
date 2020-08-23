@@ -18,7 +18,7 @@ root_path="$(cd "$(dirname "$0")" && pwd)"
 opt_in_packages=()
 
 # setup node.js repo
-curl -sL https://deb.nodesource.com/setup_13.x | \
+curl -sL https://deb.nodesource.com/setup_14.x | \
 	sudo -E bash -
 
 # add sublime text repo
