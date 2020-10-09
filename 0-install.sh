@@ -107,13 +107,6 @@ wget https://github.com/ericchiang/pup/releases/download/v0.4.0/pup_v0.4.0_linux
 unzip pup_v0.4.0_linux_amd64.zip
 rm pup_v0.4.0_linux_amd64.zip
 
-# renamer
-wget "https://dubrowgn.com/media/renamer/files/renamer-latest (linux x64).zip" -O renamer.zip
-unzip renamer.zip
-rm renamer.zip
-echo -e '#!'"/bin/bash\n\nQT_SCREEN_SCALE_FACTORS=2 /home/dubrowgn/.bin/$(ls renamer-*)" > renamer
-chmod +x renamer*
-
 # telegram
 if prompt "Install Telegram client?"; then
 	wget https://telegram.org/dl/desktop/linux -O telegram.tar.xz
@@ -134,6 +127,12 @@ sudo dpkg -i fd_7.4.0_amd64.deb
 # micro text editor
 wget https://github.com/zyedidia/micro/releases/download/v2.0.6/micro-2.0.6-amd64.deb
 sudo dpkg -i micro-2.0.6-amd64.deb
+
+# renamer
+wget https://github.com/dubrowgn/renamer/releases/download/v1.4.0/renamer-1.4.0-0_amd64.deb
+sudo apt install ./renamer-1.4.0-0_amd64.deb
+echo -e '#!'"/bin/bash\n\nQT_SCREEN_SCALE_FACTORS=2 /usr/local/bin/renamer" > ~/.bin/renamer
+chmod +x ~/.bin/renamer
 
 # steam
 if prompt "Install Steam client?"; then
