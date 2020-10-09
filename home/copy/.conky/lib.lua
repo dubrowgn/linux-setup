@@ -55,3 +55,4 @@ tile_size = tiles_width / tile_layout.x
 tiles_height = tile_size * tile_layout.y
 
 graph_height = dip(32)
+graph_width = tiles_width
