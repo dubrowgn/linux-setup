@@ -117,16 +117,16 @@ fi
 cd ~/Downloads
 
 # bat
-wget https://github.com/sharkdp/bat/releases/download/v0.12.1/bat_0.12.1_amd64.deb
-sudo dpkg -i bat_0.12.1_amd64.deb
+wget https://github.com/sharkdp/bat/releases/download/v0.16.0/bat_0.16.0_amd64.deb
+sudo dpkg -i bat_0.16.0_amd64.deb
 
 # fd
-wget https://github.com/sharkdp/fd/releases/download/v7.4.0/fd_7.4.0_amd64.deb
-sudo dpkg -i fd_7.4.0_amd64.deb
+wget https://github.com/sharkdp/fd/releases/download/v8.1.1/fd_8.1.1_amd64.deb
+sudo dpkg -i fd_8.1.1_amd64.deb
 
 # micro text editor
-wget https://github.com/zyedidia/micro/releases/download/v2.0.6/micro-2.0.6-amd64.deb
-sudo dpkg -i micro-2.0.6-amd64.deb
+wget https://github.com/zyedidia/micro/releases/download/v2.0.8/micro-2.0.8-amd64.deb
+sudo dpkg -i micro-2.0.8-amd64.deb
 
 # renamer
 wget https://github.com/dubrowgn/renamer/releases/download/v1.4.0/renamer-1.4.0-0_amd64.deb
