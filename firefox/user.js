@@ -6,6 +6,7 @@ user_pref("media.autoplay.default", 5);
 user_pref("media.autoplay.allow-muted", false);
 
 user_pref("browser.aboutConfig.showWarning", false);
+user_pref("browser.fixup.alternate.enabled", false);
 user_pref("browser.newtabpage.activity-stream.feeds.section.highlights", false);
 user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false);
 user_pref("browser.newtabpage.activity-stream.feeds.snippets", false);
