@@ -17,6 +17,9 @@
 	diff = diff-so-fancy | less --tabs=8 -RFX
 	show = diff-so-fancy | less --tabs=8 -RFX
 
+[pull]
+	ff = only
+
 [push]
 	default = simple
 
