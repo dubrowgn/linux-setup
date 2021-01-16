@@ -31,8 +31,14 @@ function exec(cmd)
 	return stdout
 end
 
-local px_scalar =
-	tonumber(exec('gsettings get org.gnome.desktop.interface scaling-factor | grep -oE "[0-9]$"'))
+function get_gsetting(setting)
+	return tonumber(exec('gsettings get ' .. setting .. ' | grep -oE "[0-9]$"'))
+end
+
+local px_scalar = get_gsetting('org.gnome.desktop.interface scaling-factor')
+if (px_scalar == nil or px_scalar < 1) then
+	px_scalar = get_gsetting('org.cinnamon.desktop.interface scaling-factor')
+end
 if (px_scalar == nil or px_scalar < 1) then
 	px_scalar = 1
 end
