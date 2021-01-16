@@ -51,6 +51,7 @@ sudo cp $root_path/etc/apt/preferences.d/* /etc/apt/preferences.d/.
 sudo apt-get update
 
 sudo apt-get purge \
+	celluloid \
 	firefox \
 	gnome-calculator \
 	hexchat \
