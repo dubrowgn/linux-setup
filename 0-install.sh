@@ -41,6 +41,10 @@ if prompt "Add proprietary graphics apt repo?"; then
 	sudo add-apt-repository ppa:graphics-drivers/ppa
 fi
 
+if prompt "Add open graphics apt repo?"; then
+	sudo add-apt-repository ppa:oibaf/graphics-drivers
+fi
+
 # use Ubuntu firefox package
 sudo cp $root_path/etc/apt/preferences.d/* /etc/apt/preferences.d/.
 
@@ -57,7 +61,8 @@ sudo apt-get purge \
 	rhythmbox \
 	thunderbird \
 	tomboy \
-	transmission-gtk
+	transmission-gtk \
+	warpinator
 
 sudo apt-get autoremove
 
@@ -117,12 +122,12 @@ fi
 cd ~/Downloads
 
 # bat
-wget https://github.com/sharkdp/bat/releases/download/v0.16.0/bat_0.16.0_amd64.deb
-sudo dpkg -i bat_0.16.0_amd64.deb
+wget https://github.com/sharkdp/bat/releases/download/v0.17.1/bat_0.17.1_amd64.deb
+sudo dpkg -i bat_0.17.1_amd64.deb
 
 # fd
-wget https://github.com/sharkdp/fd/releases/download/v8.1.1/fd_8.1.1_amd64.deb
-sudo dpkg -i fd_8.1.1_amd64.deb
+wget https://github.com/sharkdp/fd/releases/download/v8.2.1/fd_8.2.1_amd64.deb
+sudo dpkg -i fd_8.2.1_amd64.deb
 
 # micro text editor
 wget https://github.com/zyedidia/micro/releases/download/v2.0.8/micro-2.0.8-amd64.deb
