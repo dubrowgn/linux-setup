@@ -79,6 +79,7 @@ sudo apt-get install \
 	gparted \
 	htop \
 	httpie \
+	inkscape \
 	jq \
 	keepass2 \
 	nodejs \
