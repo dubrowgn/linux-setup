@@ -74,6 +74,7 @@ sudo apt-get install \
 	conky-all \
 	firefox \
 	gdebi \
+	gimp \
 	git \
 	gparted \
 	htop \
