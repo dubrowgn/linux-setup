@@ -27,14 +27,18 @@ wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | \
 echo "deb https://download.sublimetext.com/ apt/stable/" | \
 	sudo tee /etc/apt/sources.list.d/sublime-text.list
 
-# add syncthing repo
-wget -qO - https://syncthing.net/release-key.txt | \
-	sudo apt-key add -
-echo "deb https://apt.syncthing.net/ syncthing stable" | \
-	sudo tee /etc/apt/sources.list.d/syncthing.list
-
 if prompt "Install syncthing?"; then
+	wget -qO - https://syncthing.net/release-key.txt | \
+		sudo apt-key add -
+	echo "deb https://apt.syncthing.net/ syncthing stable" | \
+		sudo tee /etc/apt/sources.list.d/syncthing.list
+
 	opt_in_packages+=("syncthing")
+fi
+
+if prompt "Install RetroArch?"; then
+	sudo add-apt-repository ppa:libretro/stable
+	opt_in_packages+=("retroarch")
 fi
 
 if prompt "Add proprietary graphics apt repo?"; then
