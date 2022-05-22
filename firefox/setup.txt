@@ -5,3 +5,6 @@ https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/
 
 # Tree Style Tab, by Piroi
 https://addons.mozilla.org/en-US/firefox/addon/tree-style-tab/
+
+# Add torrent to deluge web UI, by mportugal
+https://addons.mozilla.org/en-US/firefox/addon/delugeaddtorrent/
