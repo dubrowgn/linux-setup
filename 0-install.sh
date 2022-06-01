@@ -133,8 +133,8 @@ wget https://github.com/sharkdp/bat/releases/download/v0.17.1/bat_0.17.1_amd64.d
 sudo dpkg -i bat_0.17.1_amd64.deb
 
 # fd
-wget https://github.com/sharkdp/fd/releases/download/v8.2.1/fd_8.2.1_amd64.deb
-sudo dpkg -i fd_8.2.1_amd64.deb
+wget https://github.com/sharkdp/fd/releases/download/v8.4.0/fd_8.4.0_amd64.deb
+sudo dpkg -i fd_8.4.0_amd64.deb
 
 # micro text editor
 wget https://github.com/zyedidia/micro/releases/download/v2.0.8/micro-2.0.8-amd64.deb
