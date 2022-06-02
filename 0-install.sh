@@ -87,6 +87,7 @@ sudo apt-get install \
 	jq \
 	keepass2 \
 	nodejs \
+	parallel \
 	powertop \
 	silversearcher-ag \
 	smartmontools \
