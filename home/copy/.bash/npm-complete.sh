@@ -67,3 +67,14 @@ elif type compctl &>/dev/null; then
   compctl -K _npm_completion npm
 fi
 ###-end-npm-completion-###
+
+alias npr="npm run -s"
+if type complete &>/dev/null; then
+  _npr_completion() {
+    ((COMP_CWORD+=1))
+    COMP_WORDS=("npm" "run" "${COMP_WORDS[@]:1}")
+    shift
+    _npm_completion "npm" "run" "$@"
+  }
+  complete -o default -F _npr_completion npr
+fi

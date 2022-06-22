@@ -3,7 +3,6 @@
 alias cat="bat --style plain --paging never"
 alias clear="clear && clear"
 alias fd="fd -HI"
-alias npr="npm run -s"
 
 function prompt() {
 	local _msg="$1"
