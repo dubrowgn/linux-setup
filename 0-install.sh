@@ -80,6 +80,7 @@ sudo apt-get install \
 	gdebi \
 	gimp \
 	git \
+	git-lfs \
 	gparted \
 	htop \
 	httpie \
