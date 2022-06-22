@@ -1,0 +1,14 @@
+#! /bin/bash
+
+port="$(($RANDOM % 4000 + 8000))"
+if [[ "$1" != "" ]]; then
+	port="$1"
+fi
+
+function launch() {
+	sleep .1s
+	firefox "http://localhost:$port"
+}
+
+launch &
+python3 -m http.server "$port"
