@@ -74,6 +74,7 @@ sudo apt-get autoremove
 sudo apt-get dist-upgrade
 
 sudo apt-get install \
+	bat \
 	build-essential \
 	conky-all \
 	fd-find \
@@ -131,10 +132,6 @@ if prompt "Install Telegram client?"; then
 fi
 
 cd ~/Downloads
-
-# bat
-wget https://github.com/sharkdp/bat/releases/download/v0.17.1/bat_0.17.1_amd64.deb
-sudo dpkg -i bat_0.17.1_amd64.deb
 
 # renamer
 wget https://github.com/dubrowgn/renamer/releases/download/v1.4.0/renamer-1.4.0-0_amd64.deb
