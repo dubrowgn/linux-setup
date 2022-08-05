@@ -15,6 +15,12 @@ function prompt() {
 alias wget="wget -q --show-progress"
 root_path="$(cd "$(dirname "$0")" && pwd)"
 
+function upstream-distro() {
+	cat "/etc/upstream-release/lsb-release" | \
+		grep "CODENAME" | \
+		awk '{split($0,a,"="); print a[2]}'
+}
+
 function sudo-pipe() {
 	sudo tee "$1" > /dev/null
 }
@@ -29,6 +35,21 @@ function apt-src-add() {
 
 	wget -qO - "$key_url" | gpg --dearmor | sudo-pipe "$key_path" \
 		&& echo "deb [signed-by=$key_path] $src" | sudo-pipe "$src_path"
+}
+
+function apt-ppa-add() {
+	local name="$1"
+	local dist="$2"
+
+	function fprint() {
+		curl -s "https://api.launchpad.net/1.0/~$name/+archive/ubuntu/$dist" \
+			| grep -oP 'signing_key_fingerprint":\s*"[^"]+' \
+			| grep -oP '[0-f]+$'
+	}
+
+	apt-src-add "$name" \
+		"https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x$(fprint)" \
+		"http://ppa.launchpad.net/$name/$dist/ubuntu $(upstream-distro) main"
 }
 
 opt_in_packages=()
@@ -53,16 +74,20 @@ if prompt "Install syncthing?"; then
 fi
 
 if prompt "Install RetroArch?"; then
-	sudo add-apt-repository ppa:libretro/stable
+	apt-ppa-add "libretro" "stable" \
+		|| exit
+
 	opt_in_packages+=("retroarch")
 fi
 
 if prompt "Add proprietary graphics apt repo?"; then
-	sudo add-apt-repository ppa:graphics-drivers/ppa
+	apt-ppa-add "graphics-drivers" "ppa" \
+		|| exit
 fi
 
 if prompt "Add open graphics apt repo?"; then
-	sudo add-apt-repository ppa:oibaf/graphics-drivers
+	apt-ppa-add "oibaf" "graphics-drivers" \
+		|| exit
 fi
 
 sudo apt-get update \
