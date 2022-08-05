@@ -115,7 +115,7 @@ cd $HOME/.bin
 wget https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy
 chmod +x diff-so-fancy
 
-# pup
+# pup - https://github.com/ericchiang/pup/issues/129
 wget https://github.com/ericchiang/pup/releases/download/v0.4.0/pup_v0.4.0_linux_amd64.zip
 unzip pup_v0.4.0_linux_amd64.zip
 rm pup_v0.4.0_linux_amd64.zip
