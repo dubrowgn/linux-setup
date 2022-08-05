@@ -76,6 +76,7 @@ sudo apt-get dist-upgrade
 sudo apt-get install \
 	build-essential \
 	conky-all \
+	fd-find \
 	firefox \
 	gdebi \
 	gimp \
@@ -134,10 +135,6 @@ cd ~/Downloads
 # bat
 wget https://github.com/sharkdp/bat/releases/download/v0.17.1/bat_0.17.1_amd64.deb
 sudo dpkg -i bat_0.17.1_amd64.deb
-
-# fd
-wget https://github.com/sharkdp/fd/releases/download/v8.4.0/fd_8.4.0_amd64.deb
-sudo dpkg -i fd_8.4.0_amd64.deb
 
 # renamer
 wget https://github.com/dubrowgn/renamer/releases/download/v1.4.0/renamer-1.4.0-0_amd64.deb
