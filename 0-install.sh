@@ -52,59 +52,55 @@ fi
 # use Ubuntu firefox package
 sudo cp $root_path/etc/apt/preferences.d/* /etc/apt/preferences.d/.
 
-sudo apt-get update
-
-sudo apt-get purge \
-	celluloid \
-	firefox \
-	gnome-calculator \
-	hexchat \
-	mintinstall \
-	mintreport \
-	mintupdate \
-	mintwelcome \
-	rhythmbox \
-	thunderbird \
-	tomboy \
-	transmission-gtk \
-	warpinator
-
-sudo apt-get autoremove
-
-sudo apt-get dist-upgrade
-
-sudo apt-get install \
-	bat \
-	build-essential \
-	conky-all \
-	fd-find \
-	firefox \
-	gdebi \
-	gimp \
-	git \
-	git-lfs \
-	gparted \
-	htop \
-	httpie \
-	inkscape \
-	jq \
-	keepass2 \
-	micro \
-	nodejs \
-	parallel \
-	powertop \
-	silversearcher-ag \
-	smartmontools \
-	speedcrunch \
-	sublime-text \
-	tree \
-	tlp \
-	vim \
-	vlc \
-	xclip \
-	${opt_in_packages[@]}
-
-sudo apt-get clean
+sudo apt-get update \
+	&& sudo apt-get purge \
+		celluloid \
+		firefox \
+		gnome-calculator \
+		hexchat \
+		mintinstall \
+		mintreport \
+		mintupdate \
+		mintwelcome \
+		rhythmbox \
+		thunderbird \
+		tomboy \
+		transmission-gtk \
+		warpinator \
+	&& sudo apt-get autoremove \
+	&& sudo apt-get dist-upgrade \
+	&& sudo apt-get install \
+		bat \
+		build-essential \
+		conky-all \
+		fd-find \
+		firefox \
+		gdebi \
+		gimp \
+		git \
+		git-lfs \
+		gparted \
+		htop \
+		httpie \
+		inkscape \
+		jq \
+		keepass2 \
+		micro \
+		nodejs \
+		parallel \
+		powertop \
+		silversearcher-ag \
+		smartmontools \
+		speedcrunch \
+		sublime-text \
+		tree \
+		tlp \
+		vim \
+		vlc \
+		xclip \
+		${opt_in_packages[@]} \
+	&& sudo apt-get clean \
+	|| exit
 
 # install rust
 curl https://sh.rustup.rs -sSf | \
