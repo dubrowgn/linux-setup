@@ -87,6 +87,7 @@ sudo apt-get install \
 	inkscape \
 	jq \
 	keepass2 \
+	micro \
 	nodejs \
 	parallel \
 	powertop \
@@ -137,10 +138,6 @@ sudo dpkg -i bat_0.17.1_amd64.deb
 # fd
 wget https://github.com/sharkdp/fd/releases/download/v8.4.0/fd_8.4.0_amd64.deb
 sudo dpkg -i fd_8.4.0_amd64.deb
-
-# micro text editor
-wget https://github.com/zyedidia/micro/releases/download/v2.0.8/micro-2.0.8-amd64.deb
-sudo dpkg -i micro-2.0.8-amd64.deb
 
 # renamer
 wget https://github.com/dubrowgn/renamer/releases/download/v1.4.0/renamer-1.4.0-0_amd64.deb
