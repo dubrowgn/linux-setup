@@ -22,16 +22,18 @@ curl -sL https://deb.nodesource.com/setup_current.x | \
 	sudo -E bash -
 
 # add sublime text repo
-wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | \
-	sudo apt-key add -
-echo "deb https://download.sublimetext.com/ apt/stable/" | \
-	sudo tee /etc/apt/sources.list.d/sublime-text.list
+key_path="/usr/share/keyrings/sublime-text.gpg"
+wget -qO - "https://download.sublimetext.com/sublimehq-pub.gpg" | gpg --dearmor \
+		| sudo tee "$key_path" > /dev/null \
+	&& echo "deb [signed-by=$key_path] https://download.sublimetext.com/ apt/stable/" | \
+		sudo tee "/etc/apt/sources.list.d/sublime-text.list" > /dev/null \
+	|| exit
 
 if prompt "Install syncthing?"; then
 	key_path="/usr/share/keyrings/syncthing.gpg"
 	sudo wget -q "https://syncthing.net/release-key.gpg" -O "$key_path" \
 		&& echo "deb [signed-by=$key_path] https://apt.syncthing.net/ syncthing stable" | \
-			sudo tee "/etc/apt/sources.list.d/syncthing.list" \
+			sudo tee "/etc/apt/sources.list.d/syncthing.list" > /dev/null \
 		|| exit
 
 	opt_in_packages+=("syncthing")
