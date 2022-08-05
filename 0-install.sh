@@ -49,13 +49,9 @@ if prompt "Add open graphics apt repo?"; then
 	sudo add-apt-repository ppa:oibaf/graphics-drivers
 fi
 
-# use Ubuntu firefox package
-sudo cp $root_path/etc/apt/preferences.d/* /etc/apt/preferences.d/.
-
 sudo apt-get update \
 	&& sudo apt-get purge \
 		celluloid \
-		firefox \
 		gnome-calculator \
 		hexchat \
 		mintinstall \
@@ -74,7 +70,6 @@ sudo apt-get update \
 		build-essential \
 		conky-all \
 		fd-find \
-		firefox \
 		gdebi \
 		gimp \
 		git \
