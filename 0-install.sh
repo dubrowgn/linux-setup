@@ -28,10 +28,11 @@ echo "deb https://download.sublimetext.com/ apt/stable/" | \
 	sudo tee /etc/apt/sources.list.d/sublime-text.list
 
 if prompt "Install syncthing?"; then
-	wget -qO - https://syncthing.net/release-key.txt | \
-		sudo apt-key add -
-	echo "deb https://apt.syncthing.net/ syncthing stable" | \
-		sudo tee /etc/apt/sources.list.d/syncthing.list
+	key_path="/usr/share/keyrings/syncthing.gpg"
+	sudo wget -q "https://syncthing.net/release-key.gpg" -O "$key_path" \
+		&& echo "deb [signed-by=$key_path] https://apt.syncthing.net/ syncthing stable" | \
+			sudo tee "/etc/apt/sources.list.d/syncthing.list" \
+		|| exit
 
 	opt_in_packages+=("syncthing")
 fi
