@@ -15,6 +15,22 @@ function prompt() {
 alias wget="wget -q --show-progress"
 root_path="$(cd "$(dirname "$0")" && pwd)"
 
+function sudo-pipe() {
+	sudo tee "$1" > /dev/null
+}
+
+function apt-src-add() {
+	local name="$1"
+	local key_url="$2"
+	local src="$3"
+
+	local key_path="/usr/share/keyrings/$name.gpg"
+	local src_path="/etc/apt/sources.list.d/$name.list"
+
+	wget -qO - "$key_url" | gpg --dearmor | sudo-pipe "$key_path" \
+		&& echo "deb [signed-by=$key_path] $src" | sudo-pipe "$src_path"
+}
+
 opt_in_packages=()
 
 # setup node.js repo
@@ -22,18 +38,15 @@ curl -sL https://deb.nodesource.com/setup_current.x | \
 	sudo -E bash -
 
 # add sublime text repo
-key_path="/usr/share/keyrings/sublime-text.gpg"
-wget -qO - "https://download.sublimetext.com/sublimehq-pub.gpg" | gpg --dearmor \
-		| sudo tee "$key_path" > /dev/null \
-	&& echo "deb [signed-by=$key_path] https://download.sublimetext.com/ apt/stable/" | \
-		sudo tee "/etc/apt/sources.list.d/sublime-text.list" > /dev/null \
+apt-src-add "sublime-text" \
+		"https://download.sublimetext.com/sublimehq-pub.gpg" \
+		"https://download.sublimetext.com/ apt/stable/" \
 	|| exit
 
 if prompt "Install syncthing?"; then
-	key_path="/usr/share/keyrings/syncthing.gpg"
-	sudo wget -q "https://syncthing.net/release-key.gpg" -O "$key_path" \
-		&& echo "deb [signed-by=$key_path] https://apt.syncthing.net/ syncthing stable" | \
-			sudo tee "/etc/apt/sources.list.d/syncthing.list" > /dev/null \
+	apt-src-add "syncthing" \
+			"https://syncthing.net/release-key.gpg" \
+			"https://apt.syncthing.net/ syncthing stable" \
 		|| exit
 
 	opt_in_packages+=("syncthing")
