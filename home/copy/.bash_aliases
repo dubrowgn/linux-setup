@@ -1,8 +1,8 @@
 #!/bin/bash
 
-alias cat="bat --style plain --paging never"
+alias cat="batcat --style plain --paging never"
 alias clear="clear && clear"
-alias fd="fd -HI"
+alias fd="fdfind -HI"
 
 function prompt() {
 	local _msg="$1"
