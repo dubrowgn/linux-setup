@@ -91,7 +91,7 @@ if prompt "Add open graphics apt repo?"; then
 fi
 
 sudo apt-get update \
-	&& sudo apt-get purge \
+	&& sudo apt-get purge -y \
 		celluloid \
 		gnome-calculator \
 		hexchat \
@@ -104,9 +104,9 @@ sudo apt-get update \
 		tomboy \
 		transmission-gtk \
 		warpinator \
-	&& sudo apt-get autoremove \
-	&& sudo apt-get dist-upgrade \
-	&& sudo apt-get install \
+	&& sudo apt-get autoremove -y \
+	&& sudo apt-get dist-upgrade -y \
+	&& sudo apt-get install -y \
 		bat \
 		build-essential \
 		conky-all \
