@@ -138,6 +138,8 @@ sudo apt-get update \
 	&& sudo apt-get clean \
 	|| exit
 
+sudo systemctl enable --now tlp.service
+
 # install rust
 curl https://sh.rustup.rs -sSf | \
 	sh -s -- -y
