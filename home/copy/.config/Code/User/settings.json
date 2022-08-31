@@ -1,0 +1,11 @@
+{
+    "editor.insertSpaces": false,
+	"editor.detectIndentation": false,
+	"files.insertFinalNewline": true,
+	"editor.autoClosingBrackets": "never",
+	"explorer.confirmDragAndDrop": false,
+	"editor.autoClosingQuotes": "never",
+	"editor.autoSurround": "never",
+	"files.trimTrailingWhitespace": true,
+	"editor.rulers": [ 90 ]
+}
