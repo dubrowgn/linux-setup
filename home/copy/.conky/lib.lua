@@ -35,20 +35,25 @@ function get_gsetting(setting)
 	return tonumber(exec('gsettings get ' .. setting .. ' | grep -oE "[0-9]$"'))
 end
 
-local px_scalar = get_gsetting('org.gnome.desktop.interface scaling-factor')
-if (px_scalar == nil or px_scalar < 1) then
-	px_scalar = get_gsetting('org.cinnamon.desktop.interface scaling-factor')
-end
-if (px_scalar == nil or px_scalar < 1) then
-	px_scalar = 1
+function get_dpi()
+	local default_api = { x=96, y=96 }
+
+	local str = exec('xdpyinfo | grep resolution')
+	if (str == "") then
+		return default_api
+	end
+
+	for x, y in string.gmatch(str, '(%d+)x(%d+)') do
+		return { x=x, y=y }
+	end
+
+	return default_api
 end
 
-function dip(px)
-	return px * px_scalar
-end
+dpi = get_dpi()
 
 -- 9pt * 4/3
-font_px = dip(12)
+font_px = 12
 
 -- 3/4 * 1.618 (golden ratio)
 line_height = round(1.2135 * font_px)
@@ -56,9 +61,9 @@ line_height = round(1.2135 * font_px)
 nproc = tonumber(exec('nproc'))
 tile_layout = constrain_xy(nproc, 4)
 
-tiles_width = dip(360)
+tiles_width = 360
 tile_size = tiles_width / tile_layout.x
 tiles_height = tile_size * tile_layout.y
 
-graph_height = dip(32)
+graph_height = 32
 graph_width = tiles_width

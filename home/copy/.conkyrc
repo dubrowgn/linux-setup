@@ -1,11 +1,11 @@
-package.path = './.conky/?.lua;' .. package.path
+package.path = '.conky/?.lua;' .. package.path
 require('lib')
 
 conky.config = {
 	alignment = 'middle_right',
 	background = false,
 	border_width = 0,
-	border_inner_margin = dip(8),
+	border_inner_margin = 8,
 	cpu_avg_samples = 2,
 	default_color = 'white',
 	default_graph_height = graph_height,
@@ -19,13 +19,13 @@ conky.config = {
 	draw_shades = false,
 	extra_newline = false,
 	font = 'DejaVu Sans Mono:size=9',
-	gap_x = dip(16),
-	gap_y = dip(16),
+	gap_x = 16,
+	gap_y = 16,
 	lua_load = '~/.conky/main.lua ~/.conky/iops.lua',
 	lua_draw_hook_post = 'draw',
 	lua_draw_hook_pre = 'iops_query',
-	minimum_height = dip(5),
-	minimum_width = dip(5),
+	minimum_height = 5,
+	minimum_width = 5,
 	net_avg_samples = 2,
 	no_buffers = true,
 	out_to_console = false,
@@ -48,8 +48,8 @@ conky.config = {
 conky.text = [[
 ${color 0080ff}CPU${color}
 
-Temp${goto ]] .. dip(90) .. [[}Processes${goto ]] .. dip(180) .. [[}Threads${goto ]] .. dip(270) .. [[}Freq${alignr}Usage
-${exec sensors | grep -oP '^(Package|Tdie|Tctl).*?°C' | grep -oP '\d+\.\d°C'}${goto ]] .. dip(105) .. [[}${running_processes}/${processes}${goto ]] .. dip(185) .. [[}${running_threads}/${threads}${goto ]] .. dip(260) .. [[}${freq_g 0}GHz${alignr}${cpu cpu0}%
+Temp${goto ]] .. 90 .. [[}Processes${goto ]] .. 180 .. [[}Threads${goto ]] .. 270 .. [[}Freq${alignr}Usage
+${exec sensors | grep -oP '^(Package|Tdie|Tctl).*?°C' | grep -oP '\d+\.\d°C'}${goto ]] .. 105 .. [[}${running_processes}/${processes}${goto ]] .. 185 .. [[}${running_threads}/${threads}${goto ]] .. 260 .. [[}${freq_g 0}GHz${alignr}${cpu cpu0}%
 ${cpugraph cpu0 0080ff ff0000 -t}
 ${voffset ]] .. tiles_height .. [[}
  PID  Process $alignr   Mem     CPU
@@ -80,8 +80,8 @@ ${color 0080ff}FILESYSTEM${color}
 / $alignc ${fs_used /} / ${fs_size /} $alignr ${fs_used_perc /}%
 ${color 0080ff}${fs_bar /}${color}
 ${voffset -]] .. line_height .. [[}${color gray}${execbar echo 0}${color}
-Read  $alignc ${diskio_read}/s $alignr ${lua iops_read sda} IO/s
-Write $alignc ${diskio_write}/s $alignr ${lua iops_write sda} IO/s
+Read  $alignc ${diskio_read nvme0n1}/s $alignr ${lua iops_read nvme0n1} IO/s
+Write $alignc ${diskio_write nvme0n1}/s $alignr ${lua iops_write nvme0n1} IO/s
 
 dubrowgn $alignc ${fs_used /nas/dubrowgn} / ${fs_size /nas/dubrowgn} $alignr ${fs_used_perc /nas/dubrowgn}%
 ${color 0080ff}${fs_bar /nas/dubrowgn}${color}
@@ -94,6 +94,7 @@ ${voffset -]] .. line_height .. [[}${color gray}${execbar echo 0}${color}
 ${color 0080ff}NETWORK${color}
 
 Interface ${alignc -10} Down ${alignr} Up
-eno1 ${alignc -20} ${downspeed eno1}/s ${alignr} ${upspeed eno1}/s
+enp42s0 ${alignc -20} ${downspeed enp42s0}/s ${alignr} ${upspeed enp42s0}/s
+lo ${alignc -20} ${downspeed lo}/s ${alignr} ${upspeed lo}/s
 ${voffset -]] .. 4 * line_height .. [[}
 ]]
