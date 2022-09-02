@@ -35,23 +35,6 @@ function get_gsetting(setting)
 	return tonumber(exec('gsettings get ' .. setting .. ' | grep -oE "[0-9]$"'))
 end
 
-function get_dpi()
-	local default_api = { x=96, y=96 }
-
-	local str = exec('xdpyinfo | grep resolution')
-	if (str == "") then
-		return default_api
-	end
-
-	for x, y in string.gmatch(str, '(%d+)x(%d+)') do
-		return { x=x, y=y }
-	end
-
-	return default_api
-end
-
-dpi = get_dpi()
-
 -- 9pt * 4/3
 font_px = 12
 

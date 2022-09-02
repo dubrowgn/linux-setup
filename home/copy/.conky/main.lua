@@ -39,7 +39,9 @@ function conky_draw()
 		conky_window.height
 	)
 	local cairo = cairo_create(surface)
-	cairo_scale(cairo, dpi.x/96, dpi.y/96)
+
+	local dpr = (conky_window.text_width - 1) / tiles_width
+	cairo_scale(cairo, dpr, dpr)
 
 	local offset = { x=8 + 1, y=round(5.5 * line_height + graph_height) }
 	for i=1,nproc do
