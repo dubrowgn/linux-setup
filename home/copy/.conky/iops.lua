@@ -1,18 +1,9 @@
 require('io')
+require('lib')
 require('os')
 
 local prev_cache = { }
 local cache = { }
-
-function split(str)
-	local values = { }
-
-	for v in str:gmatch('%S+') do
-		table.insert(values, v)
-	end
-
-	return values
-end
 
 function conky_iops_query()
 	prev_cache = cache

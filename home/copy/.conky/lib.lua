@@ -31,6 +31,16 @@ function round(value)
 	return math.floor(value + 0.5)
 end
 
+function split(str)
+	local values = { }
+
+	for v in str:gmatch('%S+') do
+		table.insert(values, v)
+	end
+
+	return values
+end
+
 -- 9pt * 4/3
 font_px = 12
 
