@@ -2,6 +2,7 @@
 
 alias cat="batcat --style plain --paging never"
 alias clear="clear && clear"
+alias diff="diff --color"
 alias fd="fdfind -HI"
 
 function prompt() {
