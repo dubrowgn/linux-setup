@@ -1,8 +1,10 @@
 package.path = './.conky/?.lua;' .. package.path
 require('cairo')
 require('draw')
+require('iops')
 require('lib')
 require('math')
+require('zfs')
 
 function tile_dims(idx, offset)
 	local row = math.floor(idx / tile_layout.x)
@@ -50,4 +52,9 @@ function conky_draw()
 
 	cairo_surface_destroy(surface)
 	cairo_destroy(cairo)
+end
+
+function conky_query()
+	conky_iops_query()
+	conky_zfs_query()
 end
