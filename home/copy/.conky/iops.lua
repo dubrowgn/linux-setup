@@ -7,7 +7,7 @@ local cache = { }
 function split(str)
 	local values = { }
 
-	for v in str:gmatch('%w+') do
+	for v in str:gmatch('%S+') do
 		table.insert(values, v)
 	end
 
