@@ -3,17 +3,25 @@ require('lib')
 require('os')
 
 local cache = { }
+local enabled = exec('zpool list -H') ~= ''
 
-co = coroutine.create(function()
-	local pipe = io.popen('sudo zpool iostat -H 1')
-	repeat
-		line = pipe:read('*l')
-		coroutine.yield(line)
-	until not line
-	pipe:close()
-end)
+local co = nil
+if enabled then
+	co = coroutine.create(function()
+		local pipe = io.popen('sudo zpool iostat -H 1')
+		repeat
+			line = pipe:read('*l')
+			coroutine.yield(line)
+		until not line
+		pipe:close()
+	end)
+end
 
 function conky_zfs_query()
+	if not enabled then
+		return ''
+	end
+
 	cache = { }
 
 	local ok, line = coroutine.resume(co)
