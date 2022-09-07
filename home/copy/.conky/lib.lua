@@ -19,10 +19,6 @@ function constrain_xy(count, ratio)
 	return { x=x, y=y }
 end
 
-function round(value)
-	return math.floor(value + 0.5)
-end
-
 function exec(cmd)
 	local pipe = io.popen(cmd)
 	stdout = pipe:read('*a')
@@ -31,8 +27,8 @@ function exec(cmd)
 	return stdout
 end
 
-function get_gsetting(setting)
-	return tonumber(exec('gsettings get ' .. setting .. ' | grep -oE "[0-9]$"'))
+function round(value)
+	return math.floor(value + 0.5)
 end
 
 -- 9pt * 4/3
