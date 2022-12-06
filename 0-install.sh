@@ -122,6 +122,7 @@ sudo apt-get update \
 		jq \
 		keepass2 \
 		micro \
+		mpv \
 		nodejs \
 		parallel \
 		powertop \
