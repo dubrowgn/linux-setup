@@ -1,0 +1,12 @@
+[Unit]
+Description=//dubrowgn-srv/dubrowgn mount service
+After=network-online.target
+StartLimitIntervalSec=0
+
+[Service]
+ExecStart=/root/nas-service.sh "//dubrowgn-srv/dubrowgn" "/nas/dubrowgn"
+Restart=always
+RestartSec=4
+
+[Install]
+WantedBy=network-online.target

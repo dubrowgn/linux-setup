@@ -1,0 +1,12 @@
+[Unit]
+Description=//dubrowgn-srv/sarglaq mount service
+After=network-online.target
+StartLimitIntervalSec=0
+
+[Service]
+ExecStart=/root/nas-service.sh "//dubrowgn-srv/sarglaq" "/nas/sarglaq"
+Restart=always
+RestartSec=4
+
+[Install]
+WantedBy=network-online.target

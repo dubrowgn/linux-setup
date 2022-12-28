@@ -1,0 +1,5 @@
+[Service]
+ExecStart=nvidia-smi -pl 256
+
+[Install]
+WantedBy=multi-user.target
