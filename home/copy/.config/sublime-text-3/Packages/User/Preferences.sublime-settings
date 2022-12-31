@@ -2,5 +2,7 @@
 // and are overridden in turn by syntax-specific settings.
 {
 	"auto_match_enabled": false,
-	"draw_white_space": "all"
+	"draw_white_space": "all",
+	"remember_workspace": false,
+	"rulers": [80, 90]
 }
