@@ -56,5 +56,6 @@ end
 
 function conky_query()
 	conky_iops_query()
+	conky_power_query()
 	conky_zfs_query()
 end

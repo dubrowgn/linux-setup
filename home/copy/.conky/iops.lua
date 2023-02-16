@@ -22,6 +22,8 @@ function conky_iops_query()
 	return ''
 end
 
+conky_iops_query()
+
 function conky_iops_read(disk)
 	local now = cache[disk]
 	local prev = prev_cache[disk]

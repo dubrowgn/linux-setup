@@ -39,6 +39,8 @@ function conky_zfs_query()
 	return ''
 end
 
+conky_zfs_query()
+
 function zfs_lookup(pool, field)
 	return cache[pool] and cache[pool][field] or 0
 end

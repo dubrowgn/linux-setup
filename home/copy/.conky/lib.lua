@@ -27,8 +27,16 @@ function exec(cmd)
 	return stdout
 end
 
-function round(value)
-	return math.floor(value + 0.5)
+function round(value, places)
+	if places == nil then
+		places = 0
+	end
+
+	local shift = 10 ^ places
+	value = value * shift
+	value = math.floor(value + 0.5)
+
+	return value / shift
 end
 
 function split(str)

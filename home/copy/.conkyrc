@@ -21,7 +21,7 @@ conky.config = {
 	font = 'DejaVu Sans Mono:size=9',
 	gap_x = 16,
 	gap_y = 16,
-	lua_load = '~/.conky/main.lua ~/.conky/iops.lua ~/.conky/zfs.lua',
+	lua_load = '~/.conky/main.lua ~/.conky/iops.lua ~/.conky/power.lua ~/.conky/zfs.lua',
 	lua_draw_hook_post = 'draw',
 	lua_draw_hook_pre = 'query',
 	minimum_height = 5,
@@ -98,5 +98,9 @@ ${color 0080ff}NETWORK${color}
 Interface ${alignc -10} Down ${alignr} Up
 enp42s0 ${alignc -20} ${downspeed enp42s0}/s ${alignr} ${upspeed enp42s0}/s
 lo ${alignc -20} ${downspeed lo}/s ${alignr} ${upspeed lo}/s
+
+${color 0080ff}BATTERY${color}
+
+${lua battery_power_w BAT0} W $alignc ${lua battery_level BAT0} % $alignr ${lua battery_energy_wh BAT0} / ${lua battery_capacity_wh BAT0} Wh
 ${voffset -]] .. 4 * line_height .. [[}
 ]]
