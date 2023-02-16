@@ -89,8 +89,8 @@ dubrowgn $alignc ${fs_used /nas/dubrowgn} / ${fs_size /nas/dubrowgn} $alignr ${f
 ${color 0080ff}${fs_bar /nas/dubrowgn}${color}
 ${voffset -]] .. line_height .. [[}${color gray}${execbar echo 0}${color}
 
-public $alignc ${fs_used /nas/public} / ${fs_size /nas/public} $alignr ${fs_used_perc /nas/public}%
-${color 0080ff}${fs_bar /nas/public}${color}
+shared $alignc ${fs_used /nas/shared} / ${fs_size /nas/shared} $alignr ${fs_used_perc /nas/shared}%
+${color 0080ff}${fs_bar /nas/shared}${color}
 ${voffset -]] .. line_height .. [[}${color gray}${execbar echo 0}${color}
 
 ${color 0080ff}NETWORK${color}
