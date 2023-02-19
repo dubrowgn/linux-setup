@@ -3,8 +3,8 @@ require('lib')
 require('os')
 
 local cache = { }
-local cap_cur = { }
-local cap_prev = { }
+local cap_hist = { }
+local cap_max_age_s = 7
 
 function read_from_micros(path)
 	local f = io.open(path)
@@ -32,12 +32,12 @@ function conky_power_query()
 			volts = read_from_micros(bat_path .. '/voltage_now'),
 		}
 
-		if not cap_cur.energy_wh or cap_cur.energy_wh ~= energy_wh then
-			cap_prev = cap_cur
-			cap_cur = {
-				ts = cache.ts,
-				energy_wh = energy_wh,
-			}
+		table.insert(cap_hist, {
+			ts = cache.ts,
+			energy_wh = energy_wh,
+		})
+		while #cap_hist > 2 and cache.ts - cap_hist[1].ts > cap_max_age_s do
+			table.remove(cap_hist, 1)
 		end
 	end
 	pipe:close()
@@ -69,12 +69,15 @@ function conky_battery_level(battery)
 end
 
 function conky_battery_power_w(battery)
-	if not cap_cur.energy_wh or not cap_prev.energy_wh then
+	if #cap_hist < 2 then
 		return 0
 	end
 
-	local wh = cap_cur.energy_wh - cap_prev.energy_wh
-	local dt = cap_prev.ts - cap_cur.ts
+	local cur = cap_hist[#cap_hist]
+	local old = cap_hist[1]
+
+	local wh = cur.energy_wh - old.energy_wh
+	local dt = old.ts - cur.ts
 
 	return round(wh * 3600 / dt, 2)
 end
