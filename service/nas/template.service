@@ -1,0 +1,12 @@
+[Unit]
+Description={{local_path}} mount service
+After=network-online.target
+StartLimitIntervalSec=0
+
+[Service]
+ExecStart={{service_path}}/nas-sshfs.sh "{{remote_path}}" "{{local_path}}"
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=default.target

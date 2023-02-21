@@ -1,5 +1,10 @@
 package.path = '.conky/?.lua;' .. package.path
 require('lib')
+require('os')
+
+local home = os.getenv('HOME')
+local personal = home .. '/Personal'
+local shared = home .. '/Shared'
 
 conky.config = {
 	alignment = 'middle_right',
@@ -85,12 +90,12 @@ ${voffset -]] .. line_height .. [[}${color gray}${execbar echo 0}${color}
 Read  $alignc ${diskio_read nvme0n1}/s $alignr ${lua iops_read nvme0n1} IO/s
 Write $alignc ${diskio_write nvme0n1}/s $alignr ${lua iops_write nvme0n1} IO/s
 
-dubrowgn $alignc ${fs_used /nas/dubrowgn} / ${fs_size /nas/dubrowgn} $alignr ${fs_used_perc /nas/dubrowgn}%
-${color 0080ff}${fs_bar /nas/dubrowgn}${color}
+personal $alignc ${fs_used ]] .. personal .. [[} / ${fs_size ]] .. personal .. [[} $alignr ${fs_used_perc ]] .. personal .. [[}%
+${color 0080ff}${fs_bar ]] .. personal .. [[}${color}
 ${voffset -]] .. line_height .. [[}${color gray}${execbar echo 0}${color}
 
-shared $alignc ${fs_used /nas/shared} / ${fs_size /nas/shared} $alignr ${fs_used_perc /nas/shared}%
-${color 0080ff}${fs_bar /nas/shared}${color}
+shared $alignc ${fs_used ]] .. shared .. [[} / ${fs_size ]] .. shared .. [[} $alignr ${fs_used_perc ]] .. shared .. [[}%
+${color 0080ff}${fs_bar ]] .. shared .. [[}${color}
 ${voffset -]] .. line_height .. [[}${color gray}${execbar echo 0}${color}
 
 ${color 0080ff}NETWORK${color}
