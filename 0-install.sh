@@ -142,10 +142,15 @@ sudo apt-get update \
 sudo systemctl enable --now tlp.service
 
 # install rust
-curl https://sh.rustup.rs -sSf | \
-	sh -s -- -y
-source $HOME/.cargo/env
-RUSTFLAGS="-C target-cpu=native" cargo install broot tcalc
+comp_dir="$HOME/.local/share/bash-completion/completions"
+curl https://sh.rustup.rs -sSf \
+	| sh -s -- -y \
+	&& source $HOME/.cargo/env \
+	&& mkdir -p "$comp_dir" \
+	&& rustup completions bash cargo > "$comp_dir/cargo" \
+	&& rustup completions bash rustup > "$comp_dir/rustup" \
+	&& RUSTFLAGS="-C target-cpu=native" cargo install broot tcalc \
+	|| exit
 
 mkdir -p $HOME/.bin
 cd $HOME/.bin
