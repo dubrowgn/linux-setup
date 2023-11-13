@@ -15,7 +15,7 @@ map <C-Right> w
 hi Whitespace ctermfg=DarkGray
 match Whitespace /\s\|\n/
 set list
-set listchars=tab:▸\ ,space:·,eol:¬
+set listchars=tab:▸\ ,eol:¬
 
 " highlight whitespace at the end of a line
 highlight ExtraWhitespace ctermbg=lightgray ctermfg=black
