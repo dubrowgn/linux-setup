@@ -107,6 +107,7 @@ sudo apt-get update \
 	&& sudo apt-get autoremove -y \
 	&& sudo apt-get dist-upgrade -y \
 	&& sudo apt-get install -y \
+		b3sum \
 		bat \
 		build-essential \
 		conky-all \
