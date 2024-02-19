@@ -2,6 +2,7 @@
 filetype plugin on
 syntax on
 set hlsearch
+colorscheme tender
 
 " press alt+left/right to go to prev/next tag match
 map <A-Left> :tprev<CR><CR>
@@ -24,3 +25,4 @@ call matchadd('ExtraWhitespace', '\s\+$')
 " copy/paste via system clipboard
 map <C-c> "+y
 map <C-v> "+p
+
