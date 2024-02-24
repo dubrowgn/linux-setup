@@ -1,17 +1,41 @@
 [alias]
 	ff = pull --ff-only
-	lol = log --graph --pretty=format:'%C(yellow)%h%Creset %C(bold blue)<%an>%Creset %C(green)(%ar)%Creset %C(red)%d%Creset %s' -10
-	push-new = !git push --set-upstream origin \"$(git rev-parse --abbrev-ref HEAD)\"
+	lol = log --graph --pretty=format:'%C(auto)%h %C(bold blue)<%an> %C(green)(%ar)%C(auto)%d %Creset%s' -10
+	push-new = !git push --set-upstream origin \"$(git branch --show-current)\"
 	recommit = !git commit --reuse-message=HEAD --amend --author=\"$(git config user.name) <$(git config user.email)>\"
-	sol = log --graph --pretty=format:'%C(yellow)%h%Creset %C(bold blue)<%an>%Creset %C(green)(%ar)%Creset %C(red)%d%Creset %s' -1
-	unstage = reset HEAD
+	sol = lol -1
+	stage = add
+	unstage = rm --cached
 
 [color]
 	ui = auto
 
+[color "diff"]
+	meta = yellow
+	frag = magenta bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+
+[commit]
+	gpgsign = true
+
 [diff-so-fancy]
 	markEmptyLines = false
 	stripLeadingSymbols = false
+
+[gpg]
+	format = ssh
+
+[init]
+	defaultBranch = main
 
 [pager]
 	diff = diff-so-fancy | less --tabs=8 -RFX
@@ -22,24 +46,10 @@
 
 [push]
 	default = simple
+	autoSetupRemote = true
 
 [user]
 	name = Dustin Brown
 	email = me@dubrowgn.com
+	signingkey = ~/.ssh/dubrowgn@github.com.pub
 
-[color "diff-highlight"]
-	oldNormal = red bold
-	oldHighlight = red bold 52
-	newNormal = green bold
-	newHighlight = green bold 22
-	
-[color "diff"]
-	meta = yellow
-	frag = magenta bold
-	commit = yellow bold
-	old = red bold
-	new = green bold
-	whitespace = red reverse
-
-[init]
-	defaultBranch = main
