@@ -125,6 +125,7 @@ sudo apt-get update \
 		micro \
 		mpv \
 		nodejs \
+		nvtop \
 		parallel \
 		powertop \
 		silversearcher-ag \
