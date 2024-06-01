@@ -151,7 +151,10 @@ curl https://sh.rustup.rs -sSf \
 	&& mkdir -p "$comp_dir" \
 	&& rustup completions bash cargo > "$comp_dir/cargo" \
 	&& rustup completions bash rustup > "$comp_dir/rustup" \
-	&& RUSTFLAGS="-C target-cpu=native" cargo install broot tcalc \
+	&& RUSTFLAGS="-C target-cpu=native" cargo install \
+		broot \
+		dirstat-rs \
+		tcalc \
 	|| exit
 
 mkdir -p $HOME/.bin
