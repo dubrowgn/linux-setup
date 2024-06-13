@@ -119,6 +119,7 @@ sudo apt-get update \
 		gparted \
 		htop \
 		httpie \
+		hyperfine \
 		inkscape \
 		jq \
 		keepass2 \
