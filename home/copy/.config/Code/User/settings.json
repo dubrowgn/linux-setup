@@ -1,11 +1,15 @@
 {
-    "editor.insertSpaces": false,
-	"editor.detectIndentation": false,
-	"files.insertFinalNewline": true,
 	"editor.autoClosingBrackets": "never",
-	"explorer.confirmDragAndDrop": false,
+	"editor.autoClosingComments": "never",
 	"editor.autoClosingQuotes": "never",
 	"editor.autoSurround": "never",
+	"editor.detectIndentation": false,
+	"editor.insertSpaces": false,
+	"editor.rulers": [ 90 ],
+	"explorer.confirmDragAndDrop": false,
+	"files.insertFinalNewline": true,
 	"files.trimTrailingWhitespace": true,
-	"editor.rulers": [ 90 ]
+	"git.decorations.enabled": false,
+	"git.enabled": false,
+	"update.mode": "none"
 }
