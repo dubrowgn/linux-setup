@@ -7,6 +7,7 @@
 	"editor.insertSpaces": false,
 	"editor.rulers": [ 90 ],
 	"explorer.confirmDragAndDrop": false,
+	"explorer.enableUndo": false,
 	"files.insertFinalNewline": true,
 	"files.trimTrailingWhitespace": true,
 	"git.decorations.enabled": false,

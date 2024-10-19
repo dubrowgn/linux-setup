@@ -1,0 +1,10 @@
+[
+	{
+		"key": "ctrl+s",
+		"command": "workbench.action.files.saveWithoutFormatting"
+	},
+	{
+		"key": "ctrl+k s",
+		"command": "workbench.action.files.save"
+	}
+]
