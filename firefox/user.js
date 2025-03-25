@@ -12,6 +12,10 @@ user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false);
 user_pref("browser.newtabpage.activity-stream.feeds.snippets", false);
 user_pref("browser.newtabpage.activity-stream.feeds.topsites", false);
 user_pref("browser.newtabpage.activity-stream.showSearch", false);
+user_pref("browser.shopping.experience2023.ads.enabled", false);
+user_pref("browser.shopping.experience2023.ads.userEnabled", false);
+user_pref("browser.shopping.experience2023.autoOpen.enabled", false);
+user_pref("browser.shopping.experience2023.autoOpen.userEnabled", false);
 user_pref("browser.startup.page", 3); // restore previous tabs on startup
 user_pref("browser.urlbar.clickSelectsAll", false);
 user_pref("dom.private-attribution.submission.enabled", false);
