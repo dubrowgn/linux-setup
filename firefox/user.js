@@ -18,6 +18,8 @@ user_pref("browser.shopping.experience2023.autoOpen.enabled", false);
 user_pref("browser.shopping.experience2023.autoOpen.userEnabled", false);
 user_pref("browser.startup.page", 3); // restore previous tabs on startup
 user_pref("browser.urlbar.clickSelectsAll", false);
+user_pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false);
+user_pref("browser.urlbar.suggest.quicksuggest.sponsored", false);
 user_pref("dom.private-attribution.submission.enabled", false);
 user_pref("extensions.formautofill.creditCards.enabled", false);
 user_pref("extensions.pocket.enabled", false);
