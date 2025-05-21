@@ -80,6 +80,10 @@ if prompt "Install RetroArch?"; then
 	opt_in_packages+=("retroarch")
 fi
 
+if prompt "Install docker?"; then
+	opt_in_packages+=("docker.io" "docker-compose-v2")
+fi
+
 if prompt "Add proprietary graphics apt repo?"; then
 	apt-ppa-add "graphics-drivers" "ppa" \
 		|| exit
