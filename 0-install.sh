@@ -132,6 +132,7 @@ sudo apt-get update \
 		mold \
 		mpv \
 		nodejs \
+		neovim \
 		nvtop \
 		parallel \
 		powertop \
@@ -141,7 +142,6 @@ sudo apt-get update \
 		sublime-text \
 		tree \
 		tlp \
-		vim \
 		vlc \
 		xclip \
 		${opt_in_packages[@]} \
