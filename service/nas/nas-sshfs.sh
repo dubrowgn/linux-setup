@@ -3,38 +3,29 @@
 remote_path="$1"
 local_path="$2"
 
-function ts() {
-	date +%s.%3N
-}
-
-function dt() {
-	echo "$(ts) - $1" | bc
-}
-
 function info() {
 	echo "I - $@"
 }
 
 mountpoint "$local_path" &>/dev/null
 if [[ "$?" == "0" ]]; then
-	info "$local_path already mounted"
-	exit 0
+	info "$local_path already mounted; attempting to unmount..."
+	fusermount -u "$local_path" \
+		|| exit
 fi
 
 info "mounting $remote_path @ $local_path..."
-start="$(ts)"
-
 sshfs \
 		-f \
+		-o auto_unmount \
 		-o ServerAliveInterval=1 \
 		-o ConnectTimeout=3 \
 		-o idmap=user \
 		-o follow_symlinks \
 		-o noatime \
-		-o reconnect \
-		-o max_conns=4 \
+		-o max_conns=3 \
 		"$remote_path" \
 		"$local_path" \
 	|| exit
 
-info "mount succeeded in $(dt $start)s"
+info "unmounted $local_path"
