@@ -136,7 +136,7 @@ sudo apt-get update \
 		nvtop \
 		parallel \
 		powertop \
-		silversearcher-ag \
+		ripgrep \
 		smartmontools \
 		speedcrunch \
 		sublime-text \
