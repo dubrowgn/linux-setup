@@ -163,35 +163,42 @@ curl https://sh.rustup.rs -sSf \
 		tcalc \
 	|| exit
 
-mkdir -p $HOME/.bin
-cd $HOME/.bin
+mkdir -p $HOME/.bin \
+	&& cd $HOME/.bin \
+	|| exit
 
 # diff-so-fancy
-wget https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy
-chmod +x diff-so-fancy
+wget https://github.com/so-fancy/diff-so-fancy/releases/download/v1.4.4/diff-so-fancy \
+	&& chmod +x diff-so-fancy \
+	|| exit
 
 # pup - https://github.com/ericchiang/pup/issues/129
-wget https://github.com/ericchiang/pup/releases/download/v0.4.0/pup_v0.4.0_linux_amd64.zip
-unzip pup_v0.4.0_linux_amd64.zip
-rm pup_v0.4.0_linux_amd64.zip
+wget https://github.com/ericchiang/pup/releases/download/v0.4.0/pup_v0.4.0_linux_amd64.zip \
+	&& unzip pup_v0.4.0_linux_amd64.zip \
+	&& rm pup_v0.4.0_linux_amd64.zip \
+	|| exit
 
 # telegram
 if prompt "Install Telegram client?"; then
-	wget https://telegram.org/dl/desktop/linux -O telegram.tar.xz
-	tar -xvf telegram.tar.xz
-	rm telegram.tar.xz
+	wget https://telegram.org/dl/desktop/linux -O telegram.tar.xz \
+		&& tar -xvf telegram.tar.xz \
+		&& rm telegram.tar.xz \
+		|| exit
 fi
 
-cd ~/Downloads
+cd ~/Downloads \
+	|| exit
 
 # renamer
-wget https://github.com/dubrowgn/renamer/releases/download/v1.4.0/renamer-1.4.0-0_amd64.deb
-sudo apt install ./renamer-1.4.0-0_amd64.deb
-echo -e '#!'"/bin/bash\n\nQT_SCREEN_SCALE_FACTORS=2 /usr/local/bin/renamer" > ~/.bin/renamer
-chmod +x ~/.bin/renamer
+wget https://github.com/dubrowgn/renamer/releases/download/v1.4.0/renamer-1.4.0-0_amd64.deb \
+	&& sudo apt install ./renamer-1.4.0-0_amd64.deb \
+	&& echo -e '#!'"/bin/bash\n\nQT_SCREEN_SCALE_FACTORS=2 /usr/local/bin/renamer" > ~/.bin/renamer \
+	&& chmod +x ~/.bin/renamer \
+	|| exit
 
 # steam
 if prompt "Install Steam client?"; then
-	wget https://steamcdn-a.akamaihd.net/client/installer/steam.deb
-	sudo dpkg -i steam.deb
+	wget https://steamcdn-a.akamaihd.net/client/installer/steam.deb \
+		&& sudo dpkg -i steam.deb \
+		|| exit
 fi
