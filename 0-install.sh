@@ -114,6 +114,7 @@ sudo apt-get update \
 		b3sum \
 		bat \
 		build-essential \
+		clang \
 		conky-all \
 		fd-find \
 		gdebi \
@@ -128,6 +129,7 @@ sudo apt-get update \
 		jq \
 		keepass2 \
 		micro \
+		mold \
 		mpv \
 		nodejs \
 		nvtop \
