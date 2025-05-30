@@ -1,0 +1,12 @@
+[Unit]
+Description=Initialize Asus ACPI profile
+After=suspend.target
+
+[Service]
+Type=oneshot
+ExecStartPre=sleep 0.5s
+ExecStart=asusctl profile -P Quiet
+
+[Install]
+WantedBy=sleep.target suspend.target
+
