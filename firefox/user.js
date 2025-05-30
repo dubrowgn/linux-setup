@@ -12,6 +12,7 @@ user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false);
 user_pref("browser.newtabpage.activity-stream.feeds.snippets", false);
 user_pref("browser.newtabpage.activity-stream.feeds.topsites", false);
 user_pref("browser.newtabpage.activity-stream.showSearch", false);
+uset_pref("browser.newtabpage.activity-stream.system.showWeather", false);
 user_pref("browser.shopping.experience2023.ads.enabled", false);
 user_pref("browser.shopping.experience2023.ads.userEnabled", false);
 user_pref("browser.shopping.experience2023.autoOpen.enabled", false);
