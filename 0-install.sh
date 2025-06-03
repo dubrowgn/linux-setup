@@ -137,6 +137,7 @@ sudo apt-get update \
 		parallel \
 		powertop \
 		ripgrep \
+		sd \
 		smartmontools \
 		speedcrunch \
 		sublime-text \
