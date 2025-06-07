@@ -5,7 +5,7 @@
 	recommit = !git commit --reuse-message=HEAD --amend --author=\"$(git config user.name) <$(git config user.email)>\"
 	sol = lol -1
 	stage = add
-	unstage = rm --cached
+	unstage = restore --staged
 
 [color]
 	ui = auto
