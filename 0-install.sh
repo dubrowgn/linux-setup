@@ -128,7 +128,6 @@ sudo apt-get update \
 		inkscape \
 		jq \
 		keepass2 \
-		micro \
 		mold \
 		mpv \
 		nodejs \
