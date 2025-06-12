@@ -157,6 +157,9 @@ sudo apt-get update \
 
 sudo systemctl enable --now tlp.service
 
+sudo update-pciids \
+	|| exit
+
 # install rust
 curl https://sh.rustup.rs -sSf \
 	| sh -s -- -y \
