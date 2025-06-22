@@ -53,7 +53,7 @@ function apt-ppa-add() {
 }
 
 opt_in_packages=()
-comp_dir="$HOME/.local/share/bash-completion/completions"
+comp_dir="$HOME/.local/share/bash-completion/completions" \
 	&& mkdir -p "$comp_dir" \
 	|| exit
 
