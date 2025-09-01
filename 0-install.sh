@@ -155,6 +155,9 @@ sudo apt-get update \
 	&& sudo apt-get clean \
 	|| exit
 
+git lfs completion bash > "$comp_dir/git-lfs" \
+	|| exit
+
 sudo systemctl enable --now tlp.service
 
 sudo update-pciids \
