@@ -129,6 +129,7 @@ sudo apt-get update \
 		git \
 		git-lfs \
 		gparted \
+		hexyl \
 		htop \
 		httpie \
 		hyperfine \
