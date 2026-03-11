@@ -13,13 +13,53 @@ color = {
 	purple = { r=0.403921568627451, g=0.3058823529411765, b=0.6549019607843137, a=1 },
 }
 
-function lerp(zero_color, one_color, value)
+function l2s(c)
+	if c <= 0.00313066844250063 then
+		return c * 12.92
+	end
+
+	return 1.055 * math.pow(c, 1.0/2.4) - 0.055
+end
+
+function l2srgba(lrgba)
 	return {
-		r = zero_color.r + (one_color.r - zero_color.r) * value,
-		g = zero_color.g + (one_color.g - zero_color.g) * value,
-		b = zero_color.b + (one_color.b - zero_color.b) * value,
-		a = zero_color.a + (one_color.a - zero_color.a) * value,
+		r = l2s(lrgba.r),
+		g = l2s(lrgba.g),
+		b = l2s(lrgba.b),
+		a = lrgba.a,
 	}
+end
+
+function s2l(c)
+	if c <= 0.0404482362771082 then
+		return c / 12.92;
+	end
+
+	return math.pow((c + 0.055)/1.055, 2.4)
+end
+
+function s2lrgba(srgba)
+	return {
+		r = s2l(srgba.r),
+		g = s2l(srgba.g),
+		b = s2l(srgba.b),
+		a = srgba.a,
+	}
+end
+
+function lerp(zero, one, value)
+	return zero + (one - zero) * value
+end
+
+function mix(zero_color, one_color, value)
+	local lzero = s2lrgba(zero_color)
+	local lone = s2lrgba(one_color)
+	return l2srgba({
+		r = lerp(lzero.r, lone.r, value),
+		g = lerp(lzero.g, lone.g, value),
+		b = lerp(lzero.b, lone.b, value),
+		a = lerp(lzero.a, lone.a, value),
+	})
 end
 
 function dims(x, y, w, h)

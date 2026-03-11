@@ -20,7 +20,7 @@ end
 
 function draw_cpu_tile(cairo, cpu, offset)
 	local cpu_use = tonumber(conky_parse(string.format('${cpu cpu%u}', cpu)))
-	local tile_color = lerp(color.blue, color.red, cpu_use/100)
+	local tile_color = mix(color.blue, color.red, cpu_use/100)
 	local dims = tile_dims(cpu - 1, offset)
 	draw_box(cairo, dims, tile_color)
 
