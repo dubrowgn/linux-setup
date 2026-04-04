@@ -91,6 +91,10 @@ if prompt "Install docker?"; then
 	opt_in_packages+=("docker.io" "docker-compose-v2")
 fi
 
+if prompt "Install virtualization?"; then
+	opt_in_packages+=("qemu-system-x86" "virt-manager")
+fi
+
 if prompt "Add proprietary graphics apt repo?"; then
 	apt-ppa-add "graphics-drivers" "ppa" \
 		|| exit
