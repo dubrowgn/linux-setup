@@ -10,4 +10,4 @@ alias zstd="zstd -T$(nproc)"
 
 export PATH="$HOME/.bin:$PATH"
 export PS1="\[\e[37m\e[1m\]\u\[\e[95m\]@\[\e[37m\]\h \[\e[95m\]\W\[\e[37m\] $\[\e[m\] "
-export TIMEFORMAT="real: %2Rs; user: %2Us; system: %2Ss; cpu: %P%%"
+export TIMEFORMAT="real: %3Rs; user: %3Us; system: %3Ss; cpu: %P%%"
