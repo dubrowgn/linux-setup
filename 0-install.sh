@@ -175,6 +175,8 @@ curl https://sh.rustup.rs -sSf \
 	&& rustup completions bash cargo > "$comp_dir/cargo" \
 	&& rustup completions bash rustup > "$comp_dir/rustup" \
 	&& RUSTFLAGS="-C target-cpu=native" cargo install \
+		cargo-expand \
+		cargo-gc-bin \
 		dirstat-rs \
 		tcalc \
 	&& sudo cp "$(which ds)" /usr/bin/. \
