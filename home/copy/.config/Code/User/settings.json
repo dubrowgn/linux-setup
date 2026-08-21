@@ -1,10 +1,12 @@
 {
+	"debug.onTaskErrors": "abort",
 	"editor.autoClosingBrackets": "never",
 	"editor.autoClosingComments": "never",
 	"editor.autoClosingQuotes": "never",
 	"editor.autoSurround": "never",
 	"editor.detectIndentation": false,
 	"editor.formatOnSave": false,
+	"editor.inlayHints.enabled": "offUnlessPressed",
 	"editor.insertSpaces": false,
 	"editor.rulers": [ 90 ],
 	"explorer.confirmDragAndDrop": false,
@@ -13,5 +15,7 @@
 	"files.trimTrailingWhitespace": true,
 	"git.decorations.enabled": false,
 	"git.enabled": false,
-	"update.mode": "none"
+	"update.mode": "none",
+	"workbench.enableExperiments": false,
+	"workbench.startupEditor": "none"
 }
