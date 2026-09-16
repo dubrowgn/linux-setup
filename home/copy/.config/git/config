@@ -3,6 +3,7 @@
 	lol = log --graph --pretty=format:'%C(auto)%h %C(bold blue)<%an> %C(green)(%ar)%C(auto)%d %Creset%s' -10
 	push-new = !git push --set-upstream origin \"$(git branch --show-current)\"
 	recommit = !git commit --reuse-message=HEAD --amend --author=\"$(git config user.name) <$(git config user.email)>\"
+	sdiff = diff --staged
 	sol = lol -1
 	stage = add
 	unstage = restore --staged
