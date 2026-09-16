@@ -1,0 +1,38 @@
+{
+	"editor.autoClosingBrackets": "never",
+	"editor.autoClosingComments": "never",
+	"editor.autoClosingQuotes": "never",
+	"editor.autoSurround": "never",
+	"editor.detectIndentation": false,
+	"editor.formatOnSave": false,
+	"editor.insertSpaces": false,
+	"editor.rulers": [
+		90
+	],
+	"explorer.confirmDragAndDrop": false,
+	"explorer.enableUndo": false,
+	"git.decorations.enabled": false,
+	"git.enabled": false,
+	"update.mode": "none",
+	"workbench.startupEditor": "none",
+	"workbench.enableExperiments": false,
+	"editor.minimap.enabled": true,
+	"files.trimTrailingWhitespace": true,
+	"files.trimFinalNewlines": true,
+	"debug.onTaskErrors": "abort",
+	"luau-lsp.types.definitionFiles": {
+		"@": "types.d.luau"
+	},
+	"luau-lsp.server.crashReporting.enabled": true,
+	"luau-lsp.inlayHints.functionReturnTypes": true,
+	"luau-lsp.inlayHints.parameterNames": "literals",
+	"luau-lsp.inlayHints.parameterTypes": true,
+	"luau-lsp.inlayHints.variableTypes": true,
+	"luau-lsp.sourcemap.autogenerate": false,
+	"luau-lsp.sourcemap.enabled": false,
+	"window.autoDetectColorScheme": false,
+	"shader-validator.glsl.enabled": false,
+	"shader-validator.hlsl.enabled": false,
+	"editor.inlayHints.enabled": "offUnlessPressed",
+	"luau-lsp.platform.type": "standard"
+}
