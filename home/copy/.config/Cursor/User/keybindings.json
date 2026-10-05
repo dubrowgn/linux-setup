@@ -1,0 +1,16 @@
+[
+	{
+		"key": "ctrl+.",
+		"command": "editor.action.acceptCursorTabSuggestion",
+		"when": "cpp.shouldAcceptTab"
+	},
+	{
+		"key": "tab",
+		"command": "-editor.action.acceptCursorTabSuggestion",
+		"when": "cpp.shouldAcceptTab"
+	},
+	{
+		"key": "ctrl+y",
+		"command": "-aichat.newfollowupaction"
+	}
+]
