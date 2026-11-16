@@ -30,5 +30,6 @@ user_pref("findbar.highlightAll", true);
 user_pref("media.webspeech.synth.enabled", false);
 user_pref("network.trr.excluded-domains", "dubrowgn-srv,dubrowgn-wrt");
 user_pref("permissions.default.geo", 2); // 0 = ask; 1 = allow; 2 = block
+user_pref("sidebar.revamp", false);
 user_pref("signon.rememberSignons", false);
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
